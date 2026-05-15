@@ -31,3 +31,4 @@ void IRAM_ATTR shutdownMotorClockwise() {
 void IRAM_ATTR shutdownMotorCounterClockwise() {
   digitalWrite(motorPinCounterClockwise, LOW);
 }
+
