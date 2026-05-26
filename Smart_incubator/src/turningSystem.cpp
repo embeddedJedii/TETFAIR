@@ -18,7 +18,7 @@ else if(!digitalRead(clockwiseLimitSwitchPin)) {
   digitalWrite(motorPinCounterClockwise, HIGH);
   lastState = 1;
 }
-// check if neither is active, if neither is active, move clockwise
+// check if neither is active, if neither is active, the movementr will be based on the last state
 else {
   lastState == 0? digitalWrite(motorPinCounterClockwise, HIGH) : digitalWrite(motorPinClockwise, HIGH);
 }
