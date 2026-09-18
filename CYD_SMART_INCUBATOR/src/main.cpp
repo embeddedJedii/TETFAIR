@@ -108,7 +108,7 @@ CommandPacket outCommand =
     20,      // turnInterval (20 seconds for testing)
     0,// heaterStatus,
     0, //motorStatus,
-    0,
+    0, //fanStatusCYD
     70.0,    // hatchingHumidity
 
     "ICT",
@@ -266,6 +266,7 @@ void loop() {
     );
     outCommand.heaterStatusCYD = heaterStatus;
     outCommand.motorStatusCYD = motorStatus;
+    outCommand.fanStatusCYD = collectorFanStatus;
     if(snapshot.wifiStatus) Serial.println("Wifi is connected");
     else Serial.println("Wifi is not connected");
     Serial.printf(
