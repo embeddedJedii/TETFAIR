@@ -57,7 +57,7 @@ void GUI_initScreen__Home() {
     GUI_Label__Home__Room_Humidity = lv_label_create(GUI_Screen__Home);
     lv_label_set_long_mode(GUI_Label__Home__Room_Humidity, LV_LABEL_LONG_WRAP);
     lv_obj_set_align(GUI_Label__Home__Room_Humidity, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Label__Home__Room_Humidity, 251, -51);
+    lv_obj_set_pos(GUI_Label__Home__Room_Humidity, 263, -51);
     lv_obj_set_size(GUI_Label__Home__Room_Humidity, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
 
     GUI_Label__Home__Ttal_days = lv_label_create(GUI_Screen__Home);
@@ -215,7 +215,7 @@ void GUI_initScreen__Home() {
     GUI_Label__Home__Label_9 = lv_label_create(GUI_Screen__Home);
     lv_label_set_long_mode(GUI_Label__Home__Label_9, LV_LABEL_LONG_WRAP);
     lv_obj_set_align(GUI_Label__Home__Label_9, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Label__Home__Label_9, 129, -51);
+    lv_obj_set_pos(GUI_Label__Home__Label_9, 147, -50);
     lv_obj_set_size(GUI_Label__Home__Label_9, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
 
     GUI_Button__Home__Button = lv_button_create(GUI_Screen__Home);
@@ -250,6 +250,12 @@ void GUI_initScreen__Home() {
     lv_obj_set_pos(GUI_Image__Home__Image_7, -247, -170);
     lv_obj_set_size(GUI_Image__Home__Image_7, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
 
+    GUI_Label__Home__Label_22 = lv_label_create(GUI_Screen__Home);
+    lv_label_set_long_mode(GUI_Label__Home__Label_22, LV_LABEL_LONG_WRAP);
+    lv_obj_set_align(GUI_Label__Home__Label_22, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Label__Home__Label_22, 304, -51);
+    lv_obj_set_size(GUI_Label__Home__Label_22, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
     GUI_initScreenStyles__Home();
     GUI_initScreenTexts__Home();
 }
@@ -259,7 +265,7 @@ void GUI_initScreenTexts__Home() {
     lv_label_set_text_static(GUI_Label__Home__Heater_Diagnostic_1, "OPERATIONAL");
     lv_label_set_text_static(GUI_Label__Home__Motor_Sensor_Diagnostic_1, "OPERATIONAL");
     lv_label_set_text_static(GUI_Label__Home__WaterLevel_Diagnostic_1, "WARNING");
-    lv_label_set_text_static(GUI_Label__Home__Room_Humidity, "7");
+    lv_label_set_text_static(GUI_Label__Home__Room_Humidity, "75.0");
     lv_label_set_text_static(GUI_Label__Home__Ttal_days, "21");
     lv_label_set_text_static(GUI_Label__Home__SystemHealthDiagnostic_2, "All systems are Normal");
     lv_label_set_text_static(GUI_Label__Home__WaterLevel_Diagnostic_2, "Low Humidity");
@@ -269,10 +275,11 @@ void GUI_initScreenTexts__Home() {
     lv_label_set_text_static(GUI_Label__Home__label_5, "Set \nParameter");
     lv_label_set_text_static(GUI_Label__Home__label_2, "WiFi \n");
     lv_label_set_text_static(GUI_Label__Home__label_1, "Motor\nControl");
-    lv_label_set_text_static(GUI_Label__Home__Label_7, "30");
+    lv_label_set_text_static(GUI_Label__Home__Label_7, "30.5");
     lv_label_set_text_static(GUI_Label__Home__Label_8, "30");
-    lv_label_set_text_static(GUI_Label__Home__Label_9, "%");
+    lv_label_set_text_static(GUI_Label__Home__Label_9, "°C");
     lv_label_set_text_static(GUI_Label__Home__Label_10, "Stop Incubation");
+    lv_label_set_text_static(GUI_Label__Home__Label_22, "%");
 }
 
 void GUI_initScreenStyles__Home() {
@@ -659,4 +666,15 @@ void GUI_initScreenStyles__Home() {
                      LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_image_set_src(GUI_Image__Home__Image_7, &upload_group_3_png);
+
+    static lv_style_t GUI_Style__Label__Home__Label_22__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Label__Home__Label_22__MAIN_DEFAULT);
+    lv_style_set_text_font(&GUI_Style__Label__Home__Label_22__MAIN_DEFAULT, &Montserrat_24_500);
+    lv_style_set_text_color(&GUI_Style__Label__Home__Label_22__MAIN_DEFAULT, lv_color_make(3, 64, 34));
+    lv_style_set_text_opa(&GUI_Style__Label__Home__Label_22__MAIN_DEFAULT, 255);
+    lv_style_set_text_letter_space(&GUI_Style__Label__Home__Label_22__MAIN_DEFAULT, 0);
+    lv_style_set_text_line_space(&GUI_Style__Label__Home__Label_22__MAIN_DEFAULT, 0);
+    lv_style_set_text_align(&GUI_Style__Label__Home__Label_22__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
+    lv_obj_add_style(GUI_Label__Home__Label_22, &GUI_Style__Label__Home__Label_22__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
 }

@@ -239,7 +239,7 @@ extern lv_obj_t *GUI_Label__Screen__Label_12;
 extern lv_obj_t *GUI_Container__Screen__container_23;
 extern lv_obj_t *GUI_Label__Screen__HOME_TIMEimage_2;
 extern lv_obj_t *GUI_Image__Screen__HOME_WiFi_image_1;
-
+extern     lv_obj_t *GUI_Label__Home__Label_22;
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif

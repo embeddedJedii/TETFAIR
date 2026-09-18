@@ -16,21 +16,21 @@ void GUI_event__Arc__MotorControl__arc__Clicked(lv_event_t *event) {
 }
 
 void GUI_event__Button__MotorControl__Button_32__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &GUI_initScreen__Home); // Change_Screen
+    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
 }
 
 void GUI_event__Button__MotorControl__Button_31__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Set_ParametersAutoMode); // Change_Screen
 }
 
 void GUI_event__Button__MotorControl__Button_30__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Available_Networks); // Change_Screen
 }
 
 void GUI_event__Button__MotorControl__Button_29__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__MotorControl, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__MotorControl, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__MotorControl); // Change_Screen
 }
 
@@ -43,54 +43,54 @@ void GUI_event__Button__MotorControl__Button_34__Clicked(lv_event_t *event) {
 }
 
 void GUI_event__Button__Home__Home_HOME_button__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &GUI_initScreen__Home); // Change_Screen
+    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
 }
 
 void GUI_event__Button__Home__Home_SET_PARAMETERS_button__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Set_ParametersAutoMode); // Change_Screen
 }
 
 void GUI_event__Button__Home__Home_WIFI_button__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Available_Networks); // Change_Screen
 }
 
 void GUI_event__Button__Home__Home_MOTORCONTROL_button__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__MotorControl, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__MotorControl, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__MotorControl); // Change_Screen
 }
 
 void GUI_event__Button__Home__Button__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Screen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &GUI_initScreen__Screen); // Change_Screen
+    _ui_screen_change(&GUI_Screen__Screen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Screen); // Change_Screen
 }
 
 void GUI_event__Button__Set_ParametersCustomMode__Button_21__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &GUI_initScreen__Home); // Change_Screen
+    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
 }
 
 void GUI_event__Button__Set_ParametersCustomMode__Button_20__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Set_ParametersAutoMode); // Change_Screen
 }
 
 void GUI_event__Button__Set_ParametersCustomMode__Button_19__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Available_Networks); // Change_Screen
 }
 
 void GUI_event__Button__Set_ParametersCustomMode__Button_18__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__MotorControl, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__MotorControl, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__MotorControl); // Change_Screen
 }
 
 void GUI_event__Button__Set_ParametersCustomMode__Button_23__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Set_ParametersAutoMode); // Change_Screen
 }
 
 void GUI_event__Button__Set_ParametersCustomMode__Button_22__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Set_ParametersCustomMode, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Set_ParametersCustomMode, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Set_ParametersCustomMode); // Change_Screen
 }
 
@@ -125,82 +125,82 @@ void GUI_event__Textarea__Set_ParametersCustomMode__Textarea_8__Clicked(lv_event
 }
 
 void GUI_event__Button__Set_ParametersCustomMode__Button_24__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &GUI_initScreen__Home); // Change_Screen
+    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
 }
 
 void GUI_event__Keyboard__Set_ParametersCustomMode__Keyboard_2__Clicked(lv_event_t *event) {
 }
 
 void GUI_event__Button__Set_ParametersAutoMode__Button_13__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Set_ParametersCustomMode, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 500, 0,
+    _ui_screen_change(&GUI_Screen__Set_ParametersCustomMode, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 0, 0,
                       &GUI_initScreen__Set_ParametersCustomMode); // Change_Screen
 }
 
 void GUI_event__Button__Set_ParametersAutoMode__Button_8__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_MOVE_LEFT, 500, 0,
+    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_MOVE_LEFT, 0, 0,
                       &GUI_initScreen__Set_ParametersAutoMode); // Change_Screen
 }
 
 void GUI_event__Button__Set_ParametersAutoMode__Button_7__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__AutoModePopUp, LV_SCR_LOAD_ANIM_NONE, 500, 0,
+    _ui_screen_change(&GUI_Screen__AutoModePopUp, LV_SCR_LOAD_ANIM_NONE, 0, 0,
                       &GUI_initScreen__AutoModePopUp); // Change_Screen
 }
 
 void GUI_event__Button__Set_ParametersAutoMode__Button_14__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &GUI_initScreen__Home); // Change_Screen
+    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
 }
 
 void GUI_event__Button__Set_ParametersAutoMode__Button_16__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Available_Networks); // Change_Screen
 }
 
 void GUI_event__Button__Set_ParametersAutoMode__Button_17__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__MotorControl, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__MotorControl, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__MotorControl); // Change_Screen
 }
 
 void GUI_event__Button__Available_Networks__AvailableNetworks1__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__PaswordInputPopUp, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__PaswordInputPopUp, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__PaswordInputPopUp); // Change_Screen
 }
 
 void GUI_event__Button__Available_Networks__AvailableNetworks2__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__PaswordInputPopUp, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__PaswordInputPopUp, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__PaswordInputPopUp); // Change_Screen
 }
 
 void GUI_event__Button__Available_Networks__AvailableNetworks3__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__PaswordInputPopUp, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__PaswordInputPopUp, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__PaswordInputPopUp); // Change_Screen
 }
 
 void GUI_event__Button__Available_Networks__Button_28__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &GUI_initScreen__Home); // Change_Screen
+    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
 }
 
 void GUI_event__Button__Available_Networks__Button_27__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Set_ParametersAutoMode); // Change_Screen
 }
 
 void GUI_event__Button__Available_Networks__Button_26__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Available_Networks); // Change_Screen
 }
 
 void GUI_event__Button__Available_Networks__Button_25__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__MotorControl, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__MotorControl, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__MotorControl); // Change_Screen
 }
 
 void GUI_event__Button__PaswordInputPopUp__AvailableNetworksPopUp_Connect_Button__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Available_Networks); // Change_Screen
 }
 
 void GUI_event__Button__PaswordInputPopUp__AvailableNetworksPopUp_Cancel__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Available_Networks, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Available_Networks); // Change_Screen
 }
 
@@ -217,27 +217,27 @@ void GUI_event__Keyboard__PaswordInputPopUp__Keyboard__Clicked(lv_event_t *event
 }
 
 void GUI_event__Button__AutoModePopUp__AutoModePopUp_StartButton__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &GUI_initScreen__Home); // Change_Screen
+    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
 }
 
 void GUI_event__Button__AutoModePopUp__AutoModePopUp_CancelButton__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Set_ParametersAutoMode, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Set_ParametersAutoMode); // Change_Screen
 }
 
 void GUI_event__Button__CustomModePopUp__CustomModePopUp_StartButton__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &GUI_initScreen__Home); // Change_Screen
+    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
 }
 
 void GUI_event__Button__CustomModePopUp__CustomModePopUp_CancelButton__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Set_ParametersCustomMode, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0,
+    _ui_screen_change(&GUI_Screen__Set_ParametersCustomMode, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0,
                       &GUI_initScreen__Set_ParametersCustomMode); // Change_Screen
 }
 
 void GUI_event__Button__Screen__Button_2__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &GUI_initScreen__Home); // Change_Screen
+    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
 }
 
 void GUI_event__Button__Screen__Button_1__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &GUI_initScreen__Home); // Change_Screen
+    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
 }

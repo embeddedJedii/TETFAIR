@@ -232,3 +232,4 @@ lv_obj_t *GUI_Label__Screen__Label_12;
 lv_obj_t *GUI_Container__Screen__container_23;
 lv_obj_t *GUI_Label__Screen__HOME_TIMEimage_2;
 lv_obj_t *GUI_Image__Screen__HOME_WiFi_image_1;
+lv_obj_t *GUI_Label__Home__Label_22;

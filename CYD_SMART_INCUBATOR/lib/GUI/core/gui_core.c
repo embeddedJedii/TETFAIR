@@ -54,7 +54,7 @@ void GUI_loadFirstScreen() {
     // ...then, after exactly 10000 ms, fade into Home.
     // (Home is already initialized at this point by GUI_initScreenContents(),
     // so the target_init callback below is never actually invoked.)
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 500, 5000, &GUI_initScreen__Home);
+    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 2000, &GUI_initScreen__Home);
 }
 
 void GUI_initScreenContents() {

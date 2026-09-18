@@ -411,3 +411,4 @@ void GUI_initScreenStyles__MotorControl() {
     lv_obj_add_style(GUI_Button__MotorControl__Button_34, &GUI_Style__Button__MotorControl__Button_34__MAIN_DEFAULT,
                      LV_PART_MAIN | LV_STATE_DEFAULT);
 }
+ 
