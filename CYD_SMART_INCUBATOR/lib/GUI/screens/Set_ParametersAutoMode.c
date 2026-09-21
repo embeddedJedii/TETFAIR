@@ -67,26 +67,6 @@ void GUI_initScreen__Set_ParametersAutoMode() {
     lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_8,
                         GUI_event__Button__Set_ParametersAutoMode__Button_8__Clicked, LV_EVENT_CLICKED, NULL);
 
-    GUI_Button__Set_ParametersAutoMode__Button_3 = lv_button_create(GUI_Container__Set_ParametersAutoMode__Container);
-    lv_obj_set_align(GUI_Button__Set_ParametersAutoMode__Button_3, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Button__Set_ParametersAutoMode__Button_3, -239, -30);
-    lv_obj_set_size(GUI_Button__Set_ParametersAutoMode__Button_3, 114, 90);
-
-    GUI_Button__Set_ParametersAutoMode__Button_4 = lv_button_create(GUI_Container__Set_ParametersAutoMode__Container);
-    lv_obj_set_align(GUI_Button__Set_ParametersAutoMode__Button_4, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Button__Set_ParametersAutoMode__Button_4, -238, 68);
-    lv_obj_set_size(GUI_Button__Set_ParametersAutoMode__Button_4, 114, 90);
-
-    GUI_Button__Set_ParametersAutoMode__Button_5 = lv_button_create(GUI_Container__Set_ParametersAutoMode__Container);
-    lv_obj_set_align(GUI_Button__Set_ParametersAutoMode__Button_5, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Button__Set_ParametersAutoMode__Button_5, -103, 65);
-    lv_obj_set_size(GUI_Button__Set_ParametersAutoMode__Button_5, 114, 90);
-
-    GUI_Button__Set_ParametersAutoMode__Button_6 = lv_button_create(GUI_Container__Set_ParametersAutoMode__Container);
-    lv_obj_set_align(GUI_Button__Set_ParametersAutoMode__Button_6, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Button__Set_ParametersAutoMode__Button_6, -104, -28);
-    lv_obj_set_size(GUI_Button__Set_ParametersAutoMode__Button_6, 114, 90);
-
     GUI_Button__Set_ParametersAutoMode__Button_7 = lv_button_create(GUI_Container__Set_ParametersAutoMode__Container);
     lv_obj_set_align(GUI_Button__Set_ParametersAutoMode__Button_7, LV_ALIGN_CENTER);
     lv_obj_set_pos(GUI_Button__Set_ParametersAutoMode__Button_7, -37, 178);
@@ -97,7 +77,7 @@ void GUI_initScreen__Set_ParametersAutoMode() {
     GUI_Label__Set_ParametersAutoMode__Label_4 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
     lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_4, LV_LABEL_LONG_WRAP);
     lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_4, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_4, 58, -45);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_4, 62, -42);
     lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_4, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
 
     GUI_Label__Set_ParametersAutoMode__Label_6 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
@@ -115,20 +95,153 @@ void GUI_initScreen__Set_ParametersAutoMode() {
     GUI_Label__Set_ParametersAutoMode__Label_18 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
     lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_18, LV_LABEL_LONG_WRAP);
     lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_18, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_18, 194, -44);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_18, 202, -44);
     lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_18, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
 
     GUI_Label__Set_ParametersAutoMode__Label_19 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
     lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_19, LV_LABEL_LONG_WRAP);
     lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_19, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_19, 65, 95);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_19, 67, 99);
     lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_19, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
 
     GUI_Label__Set_ParametersAutoMode__Label_20 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
     lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_20, LV_LABEL_LONG_WRAP);
     lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_20, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_20, 60, 22);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_20, 65, 26);
     lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_20, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Container__Set_ParametersAutoMode__Container_25 =
+        lv_obj_create(GUI_Container__Set_ParametersAutoMode__Container);
+    lv_obj_remove_style_all(GUI_Container__Set_ParametersAutoMode__Container_25);
+    lv_obj_remove_flag(GUI_Container__Set_ParametersAutoMode__Container_25, LV_OBJ_FLAG_CLICKABLE);
+    lv_obj_remove_flag(GUI_Container__Set_ParametersAutoMode__Container_25, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_align(GUI_Container__Set_ParametersAutoMode__Container_25, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Container__Set_ParametersAutoMode__Container_25, -174, 6);
+    lv_obj_set_size(GUI_Container__Set_ParametersAutoMode__Container_25, 322, 272);
+
+    GUI_Button__Set_ParametersAutoMode__Button_3 =
+        lv_button_create(GUI_Container__Set_ParametersAutoMode__Container_25);
+    lv_obj_add_flag(GUI_Button__Set_ParametersAutoMode__Button_3, LV_OBJ_FLAG_CHECKABLE);
+    lv_obj_set_align(GUI_Button__Set_ParametersAutoMode__Button_3, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Button__Set_ParametersAutoMode__Button_3, -65, -39);
+    lv_obj_set_size(GUI_Button__Set_ParametersAutoMode__Button_3, 114, 90);
+    lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_3,
+                        GUI_event__Button__Set_ParametersAutoMode__Button_3__Clicked, LV_EVENT_CLICKED, NULL);
+
+    GUI_Button__Set_ParametersAutoMode__Button_4 =
+        lv_button_create(GUI_Container__Set_ParametersAutoMode__Container_25);
+    lv_obj_add_flag(GUI_Button__Set_ParametersAutoMode__Button_4, LV_OBJ_FLAG_CHECKABLE);
+    lv_obj_set_align(GUI_Button__Set_ParametersAutoMode__Button_4, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Button__Set_ParametersAutoMode__Button_4, 68, 61);
+    lv_obj_set_size(GUI_Button__Set_ParametersAutoMode__Button_4, 114, 90);
+    lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_4,
+                        GUI_event__Button__Set_ParametersAutoMode__Button_4__Clicked, LV_EVENT_CLICKED, NULL);
+
+    GUI_Button__Set_ParametersAutoMode__Button_5 =
+        lv_button_create(GUI_Container__Set_ParametersAutoMode__Container_25);
+    lv_obj_add_flag(GUI_Button__Set_ParametersAutoMode__Button_5, LV_OBJ_FLAG_CHECKABLE);
+    lv_obj_set_align(GUI_Button__Set_ParametersAutoMode__Button_5, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Button__Set_ParametersAutoMode__Button_5, 67, -40);
+    lv_obj_set_size(GUI_Button__Set_ParametersAutoMode__Button_5, 114, 90);
+    lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_5,
+                        GUI_event__Button__Set_ParametersAutoMode__Button_5__Clicked, LV_EVENT_CLICKED, NULL);
+
+    GUI_Button__Set_ParametersAutoMode__Button_6 =
+        lv_button_create(GUI_Container__Set_ParametersAutoMode__Container_25);
+    lv_obj_add_flag(GUI_Button__Set_ParametersAutoMode__Button_6, LV_OBJ_FLAG_CHECKABLE);
+    lv_obj_set_align(GUI_Button__Set_ParametersAutoMode__Button_6, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Button__Set_ParametersAutoMode__Button_6, -65, 61);
+    lv_obj_set_size(GUI_Button__Set_ParametersAutoMode__Button_6, 114, 90);
+    lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_6,
+                        GUI_event__Button__Set_ParametersAutoMode__Button_6__Clicked, LV_EVENT_CLICKED, NULL);
+
+    GUI_Label__Set_ParametersAutoMode__Label_23 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container_25);
+    lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_23, LV_LABEL_LONG_WRAP);
+    lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_23, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_23, -61, -103);
+    lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_23, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Image__Set_ParametersAutoMode__Image_5 = lv_image_create(GUI_Container__Set_ParametersAutoMode__Container_25);
+    lv_obj_add_flag(GUI_Image__Set_ParametersAutoMode__Image_5, LV_OBJ_FLAG_ADV_HITTEST);
+    lv_obj_remove_flag(GUI_Image__Set_ParametersAutoMode__Image_5, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_align(GUI_Image__Set_ParametersAutoMode__Image_5, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Image__Set_ParametersAutoMode__Image_5, 69, 63);
+    lv_obj_set_size(GUI_Image__Set_ParametersAutoMode__Image_5, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Image__Set_ParametersAutoMode__Image_16 = lv_image_create(GUI_Container__Set_ParametersAutoMode__Container_25);
+    lv_obj_add_flag(GUI_Image__Set_ParametersAutoMode__Image_16, LV_OBJ_FLAG_ADV_HITTEST);
+    lv_obj_remove_flag(GUI_Image__Set_ParametersAutoMode__Image_16, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_align(GUI_Image__Set_ParametersAutoMode__Image_16, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Image__Set_ParametersAutoMode__Image_16, 69, -38);
+    lv_obj_set_size(GUI_Image__Set_ParametersAutoMode__Image_16, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Image__Set_ParametersAutoMode__Image_17 = lv_image_create(GUI_Container__Set_ParametersAutoMode__Container_25);
+    lv_obj_add_flag(GUI_Image__Set_ParametersAutoMode__Image_17, LV_OBJ_FLAG_ADV_HITTEST);
+    lv_obj_remove_flag(GUI_Image__Set_ParametersAutoMode__Image_17, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_align(GUI_Image__Set_ParametersAutoMode__Image_17, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Image__Set_ParametersAutoMode__Image_17, -65, 64);
+    lv_obj_set_size(GUI_Image__Set_ParametersAutoMode__Image_17, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Image__Set_ParametersAutoMode__Image_20 = lv_image_create(GUI_Container__Set_ParametersAutoMode__Container_25);
+    lv_obj_add_flag(GUI_Image__Set_ParametersAutoMode__Image_20, LV_OBJ_FLAG_ADV_HITTEST);
+    lv_obj_remove_flag(GUI_Image__Set_ParametersAutoMode__Image_20, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_align(GUI_Image__Set_ParametersAutoMode__Image_20, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Image__Set_ParametersAutoMode__Image_20, -62, -36);
+    lv_obj_set_size(GUI_Image__Set_ParametersAutoMode__Image_20, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Label__Set_ParametersAutoMode__Label_28 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
+    lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_28, LV_LABEL_LONG_WRAP);
+    lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_28, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_28, 96, -42);
+    lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_28, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Label__Set_ParametersAutoMode__Label_25 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
+    lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_25, LV_LABEL_LONG_WRAP);
+    lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_25, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_25, -237, -1);
+    lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_25, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Label__Set_ParametersAutoMode__Label_24 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
+    lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_24, LV_LABEL_LONG_WRAP);
+    lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_24, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_24, -107, -2);
+    lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_24, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Label__Set_ParametersAutoMode__Label_26 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
+    lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_26, LV_LABEL_LONG_WRAP);
+    lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_26, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_26, -241, 101);
+    lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_26, 55, LV_SIZE_CONTENT);
+
+    GUI_Label__Set_ParametersAutoMode__Label_27 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
+    lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_27, LV_LABEL_LONG_WRAP);
+    lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_27, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_27, -105, 99);
+    lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_27, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Label__Set_ParametersAutoMode__Label_30 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
+    lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_30, LV_LABEL_LONG_WRAP);
+    lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_30, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_30, 240, 25);
+    lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_30, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Label__Set_ParametersAutoMode__Label_31 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
+    lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_31, LV_LABEL_LONG_WRAP);
+    lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_31, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_31, 242, -43);
+    lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_31, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Label__Set_ParametersAutoMode__Label_29 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
+    lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_29, LV_LABEL_LONG_WRAP);
+    lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_29, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_29, 110, 99);
+    lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_29, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+
+    GUI_Label__Set_ParametersAutoMode__Label_32 = lv_label_create(GUI_Container__Set_ParametersAutoMode__Container);
+    lv_label_set_long_mode(GUI_Label__Set_ParametersAutoMode__Label_32, LV_LABEL_LONG_WRAP);
+    lv_obj_set_align(GUI_Label__Set_ParametersAutoMode__Label_32, LV_ALIGN_CENTER);
+    lv_obj_set_pos(GUI_Label__Set_ParametersAutoMode__Label_32, 246, 98);
+    lv_obj_set_size(GUI_Label__Set_ParametersAutoMode__Label_32, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
 
     GUI_Container__Set_ParametersAutoMode__Container_4 = lv_obj_create(GUI_Screen__Set_ParametersAutoMode);
     lv_obj_remove_style_all(GUI_Container__Set_ParametersAutoMode__Container_4);
@@ -187,6 +300,16 @@ void GUI_initScreenTexts__Set_ParametersAutoMode() {
     lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_18, "100");
     lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_19, "100");
     lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_20, "100");
+    lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_23, "Choose Poultry");
+    lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_28, " C");
+    lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_25, "Chicken");
+    lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_24, "Duck");
+    lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_26, "Turkey");
+    lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_27, "Guinea Fowl");
+    lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_30, "days");
+    lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_31, "%");
+    lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_29, "days");
+    lv_label_set_text_static(GUI_Label__Set_ParametersAutoMode__Label_32, "%");
 }
 
 void GUI_initScreenStyles__Set_ParametersAutoMode() {
@@ -264,46 +387,6 @@ void GUI_initScreenStyles__Set_ParametersAutoMode() {
                      &GUI_Style__Button__Set_ParametersAutoMode__Button_8__MAIN_DEFAULT,
                      LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT;
-    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT);
-    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT,
-                          lv_color_make(255, 255, 255));
-    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT, 0);
-    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT, 0);
-    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_3,
-                     &GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT,
-                     LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT;
-    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT);
-    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT,
-                          lv_color_make(255, 255, 255));
-    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT, 0);
-    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT, 0);
-    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_4,
-                     &GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT,
-                     LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT;
-    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT);
-    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT,
-                          lv_color_make(255, 255, 255));
-    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT, 0);
-    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT, 0);
-    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_5,
-                     &GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT,
-                     LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT;
-    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT);
-    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT,
-                          lv_color_make(255, 255, 255));
-    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT, 0);
-    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT, 0);
-    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_6,
-                     &GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT,
-                     LV_PART_MAIN | LV_STATE_DEFAULT);
-
     static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_7__MAIN_DEFAULT;
     lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_7__MAIN_DEFAULT);
     lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_7__MAIN_DEFAULT, lv_color_make(3, 64, 34));
@@ -328,7 +411,7 @@ void GUI_initScreenStyles__Set_ParametersAutoMode() {
 
     static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_4__MAIN_DEFAULT;
     lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_4__MAIN_DEFAULT);
-    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_4__MAIN_DEFAULT, &Font_4);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_4__MAIN_DEFAULT, &Font_2);
     lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_4__MAIN_DEFAULT, lv_color_make(3, 64, 34));
     lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_4__MAIN_DEFAULT, 255);
     lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_4__MAIN_DEFAULT, 0);
@@ -339,7 +422,7 @@ void GUI_initScreenStyles__Set_ParametersAutoMode() {
 
     static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_6__MAIN_DEFAULT;
     lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_6__MAIN_DEFAULT);
-    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_6__MAIN_DEFAULT, &Font_4);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_6__MAIN_DEFAULT, &Font_2);
     lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_6__MAIN_DEFAULT, lv_color_make(3, 64, 34));
     lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_6__MAIN_DEFAULT, 255);
     lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_6__MAIN_DEFAULT, 0);
@@ -350,7 +433,7 @@ void GUI_initScreenStyles__Set_ParametersAutoMode() {
 
     static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_17__MAIN_DEFAULT;
     lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_17__MAIN_DEFAULT);
-    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_17__MAIN_DEFAULT, &Font_4);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_17__MAIN_DEFAULT, &Font_2);
     lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_17__MAIN_DEFAULT,
                             lv_color_make(3, 64, 34));
     lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_17__MAIN_DEFAULT, 255);
@@ -363,7 +446,7 @@ void GUI_initScreenStyles__Set_ParametersAutoMode() {
 
     static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_18__MAIN_DEFAULT;
     lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_18__MAIN_DEFAULT);
-    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_18__MAIN_DEFAULT, &Font_4);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_18__MAIN_DEFAULT, &Font_2);
     lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_18__MAIN_DEFAULT,
                             lv_color_make(3, 64, 34));
     lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_18__MAIN_DEFAULT, 255);
@@ -376,7 +459,7 @@ void GUI_initScreenStyles__Set_ParametersAutoMode() {
 
     static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_19__MAIN_DEFAULT;
     lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_19__MAIN_DEFAULT);
-    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_19__MAIN_DEFAULT, &Font_4);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_19__MAIN_DEFAULT, &Font_2);
     lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_19__MAIN_DEFAULT,
                             lv_color_make(3, 64, 34));
     lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_19__MAIN_DEFAULT, 255);
@@ -389,7 +472,7 @@ void GUI_initScreenStyles__Set_ParametersAutoMode() {
 
     static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_20__MAIN_DEFAULT;
     lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_20__MAIN_DEFAULT);
-    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_20__MAIN_DEFAULT, &Font_4);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_20__MAIN_DEFAULT, &Font_2);
     lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_20__MAIN_DEFAULT,
                             lv_color_make(3, 64, 34));
     lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_20__MAIN_DEFAULT, 255);
@@ -398,6 +481,219 @@ void GUI_initScreenStyles__Set_ParametersAutoMode() {
     lv_style_set_text_align(&GUI_Style__Label__Set_ParametersAutoMode__Label_20__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
     lv_obj_add_style(GUI_Label__Set_ParametersAutoMode__Label_20,
                      &GUI_Style__Label__Set_ParametersAutoMode__Label_20__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT);
+    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT,
+                          lv_color_make(255, 207, 97));
+    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT, 255);
+    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT, 0);
+    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_3,
+                     &GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_CHECKED;
+    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_CHECKED);
+    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_CHECKED,
+                          lv_color_make(219, 151, 1));
+    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_CHECKED, 255);
+    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_CHECKED, 0);
+    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_3,
+                     &GUI_Style__Button__Set_ParametersAutoMode__Button_3__MAIN_CHECKED,
+                     LV_PART_MAIN | LV_STATE_CHECKED);
+
+    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT);
+    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT,
+                          lv_color_make(255, 207, 97));
+    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT, 255);
+    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT, 0);
+    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_4,
+                     &GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_CHECKED;
+    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_CHECKED);
+    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_CHECKED,
+                          lv_color_make(219, 151, 1));
+    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_CHECKED, 255);
+    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_CHECKED, 0);
+    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_4,
+                     &GUI_Style__Button__Set_ParametersAutoMode__Button_4__MAIN_CHECKED,
+                     LV_PART_MAIN | LV_STATE_CHECKED);
+
+    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT);
+    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT,
+                          lv_color_make(255, 207, 97));
+    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT, 255);
+    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT, 0);
+    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_5,
+                     &GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_CHECKED;
+    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_CHECKED);
+    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_CHECKED,
+                          lv_color_make(219, 151, 1));
+    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_CHECKED, 255);
+    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_CHECKED, 0);
+    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_5,
+                     &GUI_Style__Button__Set_ParametersAutoMode__Button_5__MAIN_CHECKED,
+                     LV_PART_MAIN | LV_STATE_CHECKED);
+
+    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT);
+    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT,
+                          lv_color_make(255, 207, 97));
+    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT, 255);
+    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT, 0);
+    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_6,
+                     &GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+    static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_CHECKED;
+    lv_style_init(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_CHECKED);
+    lv_style_set_bg_color(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_CHECKED,
+                          lv_color_make(219, 151, 1));
+    lv_style_set_bg_opa(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_CHECKED, 255);
+    lv_style_set_radius(&GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_CHECKED, 0);
+    lv_obj_add_style(GUI_Button__Set_ParametersAutoMode__Button_6,
+                     &GUI_Style__Button__Set_ParametersAutoMode__Button_6__MAIN_CHECKED,
+                     LV_PART_MAIN | LV_STATE_CHECKED);
+
+    static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_23__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_23__MAIN_DEFAULT);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_23__MAIN_DEFAULT, &Montserrat17Medium);
+    lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_23__MAIN_DEFAULT, lv_color_make(0, 0, 0));
+    lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_23__MAIN_DEFAULT, 255);
+    lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_23__MAIN_DEFAULT, 0);
+    lv_style_set_text_line_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_23__MAIN_DEFAULT, 0);
+    lv_style_set_text_align(&GUI_Style__Label__Set_ParametersAutoMode__Label_23__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
+    lv_obj_add_style(GUI_Label__Set_ParametersAutoMode__Label_23,
+                     &GUI_Style__Label__Set_ParametersAutoMode__Label_23__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    lv_image_set_src(GUI_Image__Set_ParametersAutoMode__Image_5, &upload_cbi_chicken_png);
+
+    lv_image_set_src(GUI_Image__Set_ParametersAutoMode__Image_16, &upload_gameicons_plasticduck_png);
+
+    lv_image_set_src(GUI_Image__Set_ParametersAutoMode__Image_17, &upload_emojionemonotone_turkey_png);
+
+    lv_image_set_src(GUI_Image__Set_ParametersAutoMode__Image_20, &upload_cbi_chicken_1_png);
+
+    static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_28__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_28__MAIN_DEFAULT);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_28__MAIN_DEFAULT, &Font_2);
+    lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_28__MAIN_DEFAULT,
+                            lv_color_make(3, 64, 34));
+    lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_28__MAIN_DEFAULT, 255);
+    lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_28__MAIN_DEFAULT, 0);
+    lv_style_set_text_line_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_28__MAIN_DEFAULT, 0);
+    lv_style_set_text_align(&GUI_Style__Label__Set_ParametersAutoMode__Label_28__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
+    lv_obj_add_style(GUI_Label__Set_ParametersAutoMode__Label_28,
+                     &GUI_Style__Label__Set_ParametersAutoMode__Label_28__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_25__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_25__MAIN_DEFAULT);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_25__MAIN_DEFAULT, &Font_4);
+    lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_25__MAIN_DEFAULT,
+                            lv_color_make(255, 245, 222));
+    lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_25__MAIN_DEFAULT, 255);
+    lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_25__MAIN_DEFAULT, 0);
+    lv_style_set_text_line_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_25__MAIN_DEFAULT, 0);
+    lv_style_set_text_align(&GUI_Style__Label__Set_ParametersAutoMode__Label_25__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
+    lv_obj_add_style(GUI_Label__Set_ParametersAutoMode__Label_25,
+                     &GUI_Style__Label__Set_ParametersAutoMode__Label_25__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_24__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_24__MAIN_DEFAULT);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_24__MAIN_DEFAULT, &Font_4);
+    lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_24__MAIN_DEFAULT,
+                            lv_color_make(255, 245, 222));
+    lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_24__MAIN_DEFAULT, 255);
+    lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_24__MAIN_DEFAULT, 0);
+    lv_style_set_text_line_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_24__MAIN_DEFAULT, 0);
+    lv_style_set_text_align(&GUI_Style__Label__Set_ParametersAutoMode__Label_24__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
+    lv_obj_add_style(GUI_Label__Set_ParametersAutoMode__Label_24,
+                     &GUI_Style__Label__Set_ParametersAutoMode__Label_24__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_26__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_26__MAIN_DEFAULT);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_26__MAIN_DEFAULT, &Font_4);
+    lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_26__MAIN_DEFAULT,
+                            lv_color_make(255, 245, 222));
+    lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_26__MAIN_DEFAULT, 255);
+    lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_26__MAIN_DEFAULT, 0);
+    lv_style_set_text_line_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_26__MAIN_DEFAULT, 0);
+    lv_style_set_text_align(&GUI_Style__Label__Set_ParametersAutoMode__Label_26__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
+    lv_obj_add_style(GUI_Label__Set_ParametersAutoMode__Label_26,
+                     &GUI_Style__Label__Set_ParametersAutoMode__Label_26__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_27__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_27__MAIN_DEFAULT);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_27__MAIN_DEFAULT, &Font_4);
+    lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_27__MAIN_DEFAULT,
+                            lv_color_make(255, 245, 222));
+    lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_27__MAIN_DEFAULT, 255);
+    lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_27__MAIN_DEFAULT, 0);
+    lv_style_set_text_line_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_27__MAIN_DEFAULT, 0);
+    lv_style_set_text_align(&GUI_Style__Label__Set_ParametersAutoMode__Label_27__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
+    lv_obj_add_style(GUI_Label__Set_ParametersAutoMode__Label_27,
+                     &GUI_Style__Label__Set_ParametersAutoMode__Label_27__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_30__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_30__MAIN_DEFAULT);
+    lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_30__MAIN_DEFAULT, 0);
+    lv_style_set_text_line_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_30__MAIN_DEFAULT, 0);
+    lv_style_set_text_align(&GUI_Style__Label__Set_ParametersAutoMode__Label_30__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
+    lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_30__MAIN_DEFAULT,
+                            lv_color_make(3, 64, 34));
+    lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_30__MAIN_DEFAULT, 255);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_30__MAIN_DEFAULT, &Font_4);
+    lv_obj_add_style(GUI_Label__Set_ParametersAutoMode__Label_30,
+                     &GUI_Style__Label__Set_ParametersAutoMode__Label_30__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_31__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_31__MAIN_DEFAULT);
+    lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_31__MAIN_DEFAULT, 0);
+    lv_style_set_text_line_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_31__MAIN_DEFAULT, 0);
+    lv_style_set_text_align(&GUI_Style__Label__Set_ParametersAutoMode__Label_31__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
+    lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_31__MAIN_DEFAULT,
+                            lv_color_make(3, 64, 34));
+    lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_31__MAIN_DEFAULT, 255);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_31__MAIN_DEFAULT, &Font_2);
+    lv_obj_add_style(GUI_Label__Set_ParametersAutoMode__Label_31,
+                     &GUI_Style__Label__Set_ParametersAutoMode__Label_31__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_29__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_29__MAIN_DEFAULT);
+    lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_29__MAIN_DEFAULT, 0);
+    lv_style_set_text_line_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_29__MAIN_DEFAULT, 0);
+    lv_style_set_text_align(&GUI_Style__Label__Set_ParametersAutoMode__Label_29__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
+    lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_29__MAIN_DEFAULT,
+                            lv_color_make(3, 64, 34));
+    lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_29__MAIN_DEFAULT, 255);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_29__MAIN_DEFAULT, &Font_4);
+    lv_obj_add_style(GUI_Label__Set_ParametersAutoMode__Label_29,
+                     &GUI_Style__Label__Set_ParametersAutoMode__Label_29__MAIN_DEFAULT,
+                     LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    static lv_style_t GUI_Style__Label__Set_ParametersAutoMode__Label_32__MAIN_DEFAULT;
+    lv_style_init(&GUI_Style__Label__Set_ParametersAutoMode__Label_32__MAIN_DEFAULT);
+    lv_style_set_text_letter_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_32__MAIN_DEFAULT, 0);
+    lv_style_set_text_line_space(&GUI_Style__Label__Set_ParametersAutoMode__Label_32__MAIN_DEFAULT, 0);
+    lv_style_set_text_align(&GUI_Style__Label__Set_ParametersAutoMode__Label_32__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
+    lv_style_set_text_color(&GUI_Style__Label__Set_ParametersAutoMode__Label_32__MAIN_DEFAULT,
+                            lv_color_make(3, 64, 34));
+    lv_style_set_text_opa(&GUI_Style__Label__Set_ParametersAutoMode__Label_32__MAIN_DEFAULT, 255);
+    lv_style_set_text_font(&GUI_Style__Label__Set_ParametersAutoMode__Label_32__MAIN_DEFAULT, &Font_2);
+    lv_obj_add_style(GUI_Label__Set_ParametersAutoMode__Label_32,
+                     &GUI_Style__Label__Set_ParametersAutoMode__Label_32__MAIN_DEFAULT,
                      LV_PART_MAIN | LV_STATE_DEFAULT);
 
     static lv_style_t GUI_Style__Button__Set_ParametersAutoMode__Button_14__MAIN_DEFAULT;

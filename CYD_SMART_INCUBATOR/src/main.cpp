@@ -216,6 +216,42 @@ static void collector_switch_event_cb(lv_event_t *e) {
   collectorFanStatus = lv_obj_has_state(sw, LV_STATE_CHECKED) ? 1 : 0;
 }
 
+//Automode callback functions
+
+static void button_3_event_cb(lv_event_t *e) {
+//   someVariable = 1; // or toggle, increment, whatever you need
+outCommand.setTemp = 37.5;
+outCommand.setHumidity = 62;
+outCommand.incubationDays = 21 ;
+outCommand.hatchingDays = 18;
+outCommand.hatchingHumidity = 70;
+outCommand.turnInterval = 45;
+char tempLabel[8];
+char humidityLabel[8];
+char turnIntervalLabel[8];
+char hatchingDaysLabel[8];
+char incubationDaysLabel[8];
+char humidityHatchingLabel[8];
+// for set temperature
+snprintf(tempLabel, sizeof(tempLabel), "%.1f", outCommand.setTemp);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_4, tempLabel);
+//For set humidity
+snprintf(humidityLabel, sizeof(humidityLabel), "%.1f", outCommand.setHumidity);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_18, humidityLabel);
+// For turn Interval
+snprintf(turnIntervalLabel, sizeof(turnIntervalLabel), "%d", outCommand.turnInterval);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_20, turnIntervalLabel);
+// for hatching days
+snprintf(hatchingDaysLabel, sizeof(hatchingDaysLabel), "%d", outCommand.hatchingDays);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_17, hatchingDaysLabel);
+// For Incubation days
+snprintf(incubationDaysLabel, sizeof(incubationDaysLabel), "%d", outCommand.incubationDays);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_19, incubationDaysLabel);
+
+// for humidity at hatching days
+snprintf(humidityHatchingLabel, sizeof(humidityHatchingLabel), "%.1f", outCommand.hatchingHumidity);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_6, humidityHatchingLabel);
+}
 void setup() {
   Serial.begin(115200);
 
@@ -242,8 +278,8 @@ void setup() {
     lv_obj_add_event_cb(GUI_Button__MotorControl__Button_34, anticlockwise_button_event_cb, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(GUI_Switch__MotorControl__Switch_1, heater_switch_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
     lv_obj_add_event_cb(GUI_Switch__MotorControl__Switch, collector_switch_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
-
-
+    // The event for the chicken button
+    lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_3, button_3_event_cb, LV_EVENT_CLICKED, NULL);
     Serial.println("CYD I2C slave ready");
 
     Serial.print("Command packet size: ");
@@ -400,5 +436,3 @@ if(!snapshot.motorStatus){
   lv_timer_handler();
   delay(5);
 }
-
- 

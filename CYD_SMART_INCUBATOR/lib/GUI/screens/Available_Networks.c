@@ -41,48 +41,6 @@ void GUI_initScreen__Available_Networks() {
     lv_obj_set_pos(GUI_Label__Available_Networks__label, -214, -1);
     lv_obj_set_size(GUI_Label__Available_Networks__label, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
 
-    GUI_Button__Available_Networks__AvailableNetworks2 =
-        lv_button_create(GUI_Container__Available_Networks__container_8);
-    lv_obj_set_align(GUI_Button__Available_Networks__AvailableNetworks2, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Button__Available_Networks__AvailableNetworks2, -9, -35);
-    lv_obj_set_size(GUI_Button__Available_Networks__AvailableNetworks2, 590, 50);
-    lv_obj_add_event_cb(GUI_Button__Available_Networks__AvailableNetworks2,
-                        GUI_event__Button__Available_Networks__AvailableNetworks2__Clicked, LV_EVENT_CLICKED, NULL);
-
-    GUI_Image__Available_Networks__image_16 = lv_image_create(GUI_Button__Available_Networks__AvailableNetworks2);
-    lv_obj_add_flag(GUI_Image__Available_Networks__image_16, LV_OBJ_FLAG_ADV_HITTEST);
-    lv_obj_remove_flag(GUI_Image__Available_Networks__image_16, LV_OBJ_FLAG_SCROLLABLE);
-    lv_obj_set_align(GUI_Image__Available_Networks__image_16, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Image__Available_Networks__image_16, 233, -1);
-    lv_obj_set_size(GUI_Image__Available_Networks__image_16, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-
-    GUI_Label__Available_Networks__label_84 = lv_label_create(GUI_Button__Available_Networks__AvailableNetworks2);
-    lv_label_set_long_mode(GUI_Label__Available_Networks__label_84, LV_LABEL_LONG_WRAP);
-    lv_obj_set_align(GUI_Label__Available_Networks__label_84, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Label__Available_Networks__label_84, -215, -3);
-    lv_obj_set_size(GUI_Label__Available_Networks__label_84, LV_SIZE_CONTENT, LV_SIZE_CONTENT); 
-
-    GUI_Button__Available_Networks__AvailableNetworks3 =
-        lv_button_create(GUI_Container__Available_Networks__container_8);
-    lv_obj_set_align(GUI_Button__Available_Networks__AvailableNetworks3, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Button__Available_Networks__AvailableNetworks3, -9, 27);
-    lv_obj_set_size(GUI_Button__Available_Networks__AvailableNetworks3, 590, 50);
-    lv_obj_add_event_cb(GUI_Button__Available_Networks__AvailableNetworks3,
-                        GUI_event__Button__Available_Networks__AvailableNetworks3__Clicked, LV_EVENT_CLICKED, NULL);
-
-    GUI_Image__Available_Networks__image_17 = lv_image_create(GUI_Button__Available_Networks__AvailableNetworks3);
-    lv_obj_add_flag(GUI_Image__Available_Networks__image_17, LV_OBJ_FLAG_ADV_HITTEST);
-    lv_obj_remove_flag(GUI_Image__Available_Networks__image_17, LV_OBJ_FLAG_SCROLLABLE);
-    lv_obj_set_align(GUI_Image__Available_Networks__image_17, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Image__Available_Networks__image_17, 256, 3);
-    lv_obj_set_size(GUI_Image__Available_Networks__image_17, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-
-    GUI_Label__Available_Networks__label_85 = lv_label_create(GUI_Button__Available_Networks__AvailableNetworks3);
-    lv_label_set_long_mode(GUI_Label__Available_Networks__label_85, LV_LABEL_LONG_WRAP);
-    lv_obj_set_align(GUI_Label__Available_Networks__label_85, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Label__Available_Networks__label_85, -214, 1);
-    lv_obj_set_size(GUI_Label__Available_Networks__label_85, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-
     GUI_Label__Available_Networks__Label_3 = lv_label_create(GUI_Container__Available_Networks__container_8);
     lv_label_set_long_mode(GUI_Label__Available_Networks__Label_3, LV_LABEL_LONG_WRAP);
     lv_obj_set_align(GUI_Label__Available_Networks__Label_3, LV_ALIGN_CENTER);
@@ -95,13 +53,6 @@ void GUI_initScreen__Available_Networks() {
     lv_obj_set_align(GUI_Image__Available_Networks__Image_4, LV_ALIGN_CENTER);
     lv_obj_set_pos(GUI_Image__Available_Networks__Image_4, 242, -79);
     lv_obj_set_size(GUI_Image__Available_Networks__Image_4, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-
-    GUI_Image__Available_Networks__Image_5 = lv_image_create(GUI_Screen__Available_Networks);
-    lv_obj_add_flag(GUI_Image__Available_Networks__Image_5, LV_OBJ_FLAG_ADV_HITTEST);
-    lv_obj_remove_flag(GUI_Image__Available_Networks__Image_5, LV_OBJ_FLAG_SCROLLABLE);
-    lv_obj_set_align(GUI_Image__Available_Networks__Image_5, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Image__Available_Networks__Image_5, 241, 47);
-    lv_obj_set_size(GUI_Image__Available_Networks__Image_5, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
 
     GUI_Container__Available_Networks__Container_14 = lv_obj_create(GUI_Screen__Available_Networks);
     lv_obj_remove_style_all(GUI_Container__Available_Networks__Container_14);
@@ -154,7 +105,7 @@ void GUI_initScreen__Available_Networks() {
     lv_obj_set_size(GUI_Label__Available_Networks__AutoMode_TIME_1, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
 
     GUI_Image__Available_Networks__AutoMode_WIFI_image_1 =
-    lv_image_create(GUI_Container__Available_Networks__container_18);
+        lv_image_create(GUI_Container__Available_Networks__container_18);
     lv_obj_add_flag(GUI_Image__Available_Networks__AutoMode_WIFI_image_1, LV_OBJ_FLAG_ADV_HITTEST);
     lv_obj_remove_flag(GUI_Image__Available_Networks__AutoMode_WIFI_image_1, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_set_align(GUI_Image__Available_Networks__AutoMode_WIFI_image_1, LV_ALIGN_CENTER);
@@ -174,8 +125,6 @@ void GUI_initScreen__Available_Networks() {
 
 void GUI_initScreenTexts__Available_Networks() {
     lv_label_set_text_static(GUI_Label__Available_Networks__label, "Skill G Innovation");
-    lv_label_set_text_static(GUI_Label__Available_Networks__label_84, "Skill G Innovation");
-    lv_label_set_text_static(GUI_Label__Available_Networks__label_85, "Skill G Innovation");
     lv_label_set_text_static(GUI_Label__Available_Networks__Label_3, "WiFi Networks");
     lv_label_set_text_static(GUI_Label__Available_Networks__AutoMode_TIME_1, "16:44");
 }
@@ -254,88 +203,6 @@ void GUI_initScreenStyles__Available_Networks() {
     lv_obj_add_style(GUI_Label__Available_Networks__label, &GUI_Style__Label__Available_Networks__label__MAIN_DEFAULT,
                      LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    static lv_style_t GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT;
-    lv_style_init(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT);
-    lv_style_set_bg_color(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT,
-                          lv_color_make(0, 0, 0));
-    lv_style_set_bg_opa(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 0);
-    lv_style_set_radius(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 0);
-    lv_style_set_border_color(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT,
-                              lv_color_make(3, 64, 34));
-    lv_style_set_border_opa(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 255);
-    lv_style_set_border_width(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 1);
-    lv_style_set_border_side(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT,
-                             LV_BORDER_SIDE_BOTTOM);
-    lv_style_set_outline_color(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT,
-                               lv_color_make(3, 64, 34));
-    lv_style_set_outline_opa(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 255);
-    lv_style_set_outline_pad(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 0);
-    lv_style_set_outline_width(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 0);
-    lv_style_set_shadow_color(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT,
-                              lv_color_make(3, 64, 34));
-    lv_style_set_shadow_opa(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 255);
-    lv_style_set_shadow_width(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 1);
-    lv_style_set_shadow_spread(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 0);
-    lv_style_set_shadow_offset_x(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 0);
-    lv_style_set_shadow_offset_y(&GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT, 0);
-    lv_obj_add_style(GUI_Button__Available_Networks__AvailableNetworks2,
-                     &GUI_Style__Button__Available_Networks__AvailableNetworks2__MAIN_DEFAULT,
-                     LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    lv_image_set_src(GUI_Image__Available_Networks__image_16, &upload_vector_i1_582_24x17_png);
-
-    static lv_style_t GUI_Style__Label__Available_Networks__label_84__MAIN_DEFAULT;
-    lv_style_init(&GUI_Style__Label__Available_Networks__label_84__MAIN_DEFAULT);
-    lv_style_set_text_letter_space(&GUI_Style__Label__Available_Networks__label_84__MAIN_DEFAULT, 0);
-    lv_style_set_text_line_space(&GUI_Style__Label__Available_Networks__label_84__MAIN_DEFAULT, 0);
-    lv_style_set_text_align(&GUI_Style__Label__Available_Networks__label_84__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
-    lv_style_set_text_color(&GUI_Style__Label__Available_Networks__label_84__MAIN_DEFAULT, lv_color_make(3, 64, 34));
-    lv_style_set_text_opa(&GUI_Style__Label__Available_Networks__label_84__MAIN_DEFAULT, 255);
-    lv_style_set_text_font(&GUI_Style__Label__Available_Networks__label_84__MAIN_DEFAULT, &Font);
-    lv_obj_add_style(GUI_Label__Available_Networks__label_84,
-                     &GUI_Style__Label__Available_Networks__label_84__MAIN_DEFAULT, LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    static lv_style_t GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT;
-    lv_style_init(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT);
-    lv_style_set_bg_color(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT,
-                          lv_color_make(0, 0, 0));
-    lv_style_set_bg_opa(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 0);
-    lv_style_set_radius(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 0);
-    lv_style_set_border_color(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT,
-                              lv_color_make(3, 64, 34));
-    lv_style_set_border_opa(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 255);
-    lv_style_set_border_width(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 1);
-    lv_style_set_border_side(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT,
-                             LV_BORDER_SIDE_BOTTOM);
-    lv_style_set_outline_color(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT,
-                               lv_color_make(3, 64, 34));
-    lv_style_set_outline_opa(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 255);
-    lv_style_set_outline_pad(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 0);
-    lv_style_set_outline_width(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 0);
-    lv_style_set_shadow_color(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT,
-                              lv_color_make(3, 64, 34));
-    lv_style_set_shadow_opa(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 255);
-    lv_style_set_shadow_width(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 1);
-    lv_style_set_shadow_spread(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 0);
-    lv_style_set_shadow_offset_x(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 0);
-    lv_style_set_shadow_offset_y(&GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT, 0);
-    lv_obj_add_style(GUI_Button__Available_Networks__AvailableNetworks3,
-                     &GUI_Style__Button__Available_Networks__AvailableNetworks3__MAIN_DEFAULT,
-                     LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    lv_image_set_src(GUI_Image__Available_Networks__image_17, &upload_frame_38_png);
-
-    static lv_style_t GUI_Style__Label__Available_Networks__label_85__MAIN_DEFAULT;
-    lv_style_init(&GUI_Style__Label__Available_Networks__label_85__MAIN_DEFAULT);
-    lv_style_set_text_letter_space(&GUI_Style__Label__Available_Networks__label_85__MAIN_DEFAULT, 0);
-    lv_style_set_text_line_space(&GUI_Style__Label__Available_Networks__label_85__MAIN_DEFAULT, 0);
-    lv_style_set_text_align(&GUI_Style__Label__Available_Networks__label_85__MAIN_DEFAULT, LV_TEXT_ALIGN_LEFT);
-    lv_style_set_text_color(&GUI_Style__Label__Available_Networks__label_85__MAIN_DEFAULT, lv_color_make(3, 64, 34));
-    lv_style_set_text_opa(&GUI_Style__Label__Available_Networks__label_85__MAIN_DEFAULT, 255);
-    lv_style_set_text_font(&GUI_Style__Label__Available_Networks__label_85__MAIN_DEFAULT, &Font);
-    lv_obj_add_style(GUI_Label__Available_Networks__label_85,
-                     &GUI_Style__Label__Available_Networks__label_85__MAIN_DEFAULT, LV_PART_MAIN | LV_STATE_DEFAULT);
-
     static lv_style_t GUI_Style__Label__Available_Networks__Label_3__MAIN_DEFAULT;
     lv_style_init(&GUI_Style__Label__Available_Networks__Label_3__MAIN_DEFAULT);
     lv_style_set_text_font(&GUI_Style__Label__Available_Networks__Label_3__MAIN_DEFAULT, &Font_2);
@@ -348,8 +215,6 @@ void GUI_initScreenStyles__Available_Networks() {
                      &GUI_Style__Label__Available_Networks__Label_3__MAIN_DEFAULT, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_image_set_src(GUI_Image__Available_Networks__Image_4, &upload_vector_i1_582_24x17_png);
-
-    lv_image_set_src(GUI_Image__Available_Networks__Image_5, &upload_vector_i1_582_24x17_png);
 
     static lv_style_t GUI_Style__Button__Available_Networks__Button_28__MAIN_DEFAULT;
     lv_style_init(&GUI_Style__Button__Available_Networks__Button_28__MAIN_DEFAULT);
