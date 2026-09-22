@@ -1,367 +1,12 @@
 #include <Arduino.h>
 #include <esp32_smartdisplay.h>
-#include <Wire.h>
 #include "GUI.h"
-
-// smartdisplay_init() already calls lv_init() and sets up the display + touch
-// drivers for the ESP32-8048S070C, so we call GUI_init() (not GUI_load()) —
-// GUI_init() only builds the screens/theme/animations and loads the first one,
-// skipping GUI's own (unimplemented) lv_init()/HAL_init() path.
-
+#include "I2C.h"
+#include "eventCallbacks.h"
 static uint32_t lv_last_tick = 0;
-uint8_t motorStatus = 0;
-uint8_t heaterStatus = 0; // 0 = off, 1 = on
-uint8_t collectorFanStatus = 0;
-#define SLAVE_ADDR 0x08
-
-#define SDA_PIN 17
-#define SCL_PIN 18
-
-
-#pragma pack(push, 1)
-
-// ================================
-// ESP32 → CYD
-// ================================
-struct SensorData
-{
-    float temperature;
-    float humidity;
-
-    uint16_t daysLeft;
-    uint8_t hour;
-    uint8_t minutes;
-    uint8_t wifiStatus;
-    uint8_t motorStatus;
-    uint8_t heaterStatus;
-};
-
-
-// ================================
-// CYD → ESP32
-// ================================
-struct CommandPacket
-{
-    uint8_t stopIncubation;
-    uint8_t startIncubation;
-
-    float setTemp;
-    float setHumidity;
-
-    uint16_t incubationDays;
-    uint16_t hatchingDays;
-
-    uint32_t turnInterval;
-    
-    uint8_t heaterStatusCYD;
-    uint8_t motorStatusCYD;
-    uint8_t fanStatusCYD;
-
-    float hatchingHumidity;
-
-
-    char SSID[33];
-    char Password[64];
-};
-
-#pragma pack(pop)
-
-
-// =====================================================
-// I2C
-// =====================================================
-
-TwoWire I2C_EXT = TwoWire(1);
-
-
-// =====================================================
-// RECEIVED DATA FROM ESP32
-// =====================================================
-
-volatile SensorData lastReceived = {
-    0.0,
-    0.0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0
-};
-
-
-// =====================================================
-// COMMAND DATA TO SEND TO ESP32
-// =====================================================
-
-CommandPacket outCommand =
-{
-    0,       // stopIncubation
-    0,       // startIncubation
-
-    37.5,    // setTemp
-    60.0,    // setHumidity
-
-    21,      // incubationDays
-    18,      // hatchingDays
-
-    20,      // turnInterval (20 seconds for testing)
-    0,// heaterStatus,
-    0, //motorStatus,
-    0, //fanStatusCYD
-    70.0,    // hatchingHumidity
-
-    "ICT",
-    "INNOV8HUB"
-};
-
-
-// =====================================================
-// I2C RECEIVE CALLBACK
-// =====================================================
-
-void onReceiveHandler(int numBytes)
-{
-    if (numBytes == sizeof(SensorData))
-    {
-        SensorData incoming;
-
-        I2C_EXT.readBytes(
-            (uint8_t*)&incoming,
-            sizeof(incoming)
-        );
-
-        memcpy(
-            (void*)&lastReceived,
-            &incoming,
-            sizeof(SensorData)
-        );
-    }
-    else
-    {
-        // Clear unexpected data
-        while (I2C_EXT.available())
-        {
-            I2C_EXT.read();
-        }
-    }
-}
-
-
-// =====================================================
-// I2C REQUEST CALLBACK
-// =====================================================
-
-// void onRequestHandler()
-// {
-//     I2C_EXT.write(
-//         (uint8_t*)&outCommand,
-//         sizeof(outCommand)
-//     );
-// }
-
-void onRequestHandler()
-{
-    I2C_EXT.write(
-        (uint8_t*)&outCommand,
-        sizeof(CommandPacket)
-    );
-} 
 
 // Motor_callback
 
-    //clockwise motor
-static void clockwise_button_event_cb(lv_event_t *e) {
-  lv_event_code_t code = lv_event_get_code(e);
-
-  if (code == LV_EVENT_PRESSED) {
-    motorStatus = 1;
-  } else if (code == LV_EVENT_RELEASED || code == LV_EVENT_PRESS_LOST) {
-    // PRESS_LOST fires if the finger slides off the button while still down
-    // (e.g. dragged off the edge) -- without handling it too, clockwiseStatus
-    // could get stuck at 1 with the motor still "on" even though nothing is
-    // touching the button anymore.
-    motorStatus = 0;
-  }
-}
-
-    //Anti clockwise motor
-static void anticlockwise_button_event_cb(lv_event_t *e) {
-  lv_event_code_t code = lv_event_get_code(e);
-
-  if (code == LV_EVENT_PRESSED) {
-    motorStatus = 2;
-  } else if (code == LV_EVENT_RELEASED || code == LV_EVENT_PRESS_LOST) {
-    // PRESS_LOST fires if the finger slides off the button while still down
-    // (e.g. dragged off the edge) -- without handling it too, clockwiseStatus
-    // could get stuck at 1 with the motor still "on" even though nothing is
-    // touching the button anymore.
-    motorStatus = 0;
-  }
-
-
-}  
-
-// Heater callback
-
-
-static void heater_switch_event_cb(lv_event_t *e) {
-  lv_obj_t *sw = (lv_obj_t *)lv_event_get_target(e);
-  heaterStatus = lv_obj_has_state(sw, LV_STATE_CHECKED) ? 1 : 0;
-}
-
-//Collector fan callback
-static void collector_switch_event_cb(lv_event_t *e) {
-  lv_obj_t *sw = (lv_obj_t *)lv_event_get_target(e);
-  collectorFanStatus = lv_obj_has_state(sw, LV_STATE_CHECKED) ? 1 : 0;
-}
-
-//Automode callback functions
-//function for chicken
-static void button_3_event_cb(lv_event_t *e) {
-//   someVariable = 1; // or toggle, increment, whatever you need
-outCommand.setTemp = 37.5;
-outCommand.setHumidity = 62;
-outCommand.incubationDays = 21 ;
-outCommand.hatchingDays = 18;
-outCommand.hatchingHumidity = 70;
-outCommand.turnInterval = 60;
-char tempLabel[8];
-char humidityLabel[8];
-char turnIntervalLabel[8];
-char hatchingDaysLabel[8];
-char incubationDaysLabel[8];
-char humidityHatchingLabel[8];
-// for set temperature
-snprintf(tempLabel, sizeof(tempLabel), "%.1f", outCommand.setTemp);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_4, tempLabel);
-//For set humidity
-snprintf(humidityLabel, sizeof(humidityLabel), "%.1f", outCommand.setHumidity);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_18, humidityLabel);
-// For turn Interval
-snprintf(turnIntervalLabel, sizeof(turnIntervalLabel), "%d", outCommand.turnInterval);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_20, turnIntervalLabel);
-// for hatching days
-snprintf(hatchingDaysLabel, sizeof(hatchingDaysLabel), "%d", outCommand.hatchingDays);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_17, hatchingDaysLabel);
-// For Incubation days
-snprintf(incubationDaysLabel, sizeof(incubationDaysLabel), "%d", outCommand.incubationDays);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_19, incubationDaysLabel);
-
-// for humidity at hatching days
-snprintf(humidityHatchingLabel, sizeof(humidityHatchingLabel), "%.1f", outCommand.hatchingHumidity);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_6, humidityHatchingLabel);
-}
-
-//Function for GuineaFowl
-static void button_4_event_cb(lv_event_t *e) {
-//   someVariable = 1; // or toggle, increment, whatever you need
-outCommand.setTemp = 37.5;
-outCommand.setHumidity = 55;
-outCommand.incubationDays = 28;
-outCommand.hatchingDays = 25;
-outCommand.hatchingHumidity = 70;
-outCommand.turnInterval = 120;
-char tempLabel[8];
-char humidityLabel[8];
-char turnIntervalLabel[8];
-char hatchingDaysLabel[8];
-char incubationDaysLabel[8];
-char humidityHatchingLabel[8];
-// for set temperature
-snprintf(tempLabel, sizeof(tempLabel), "%.1f", outCommand.setTemp);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_4, tempLabel);
-//For set humidity
-snprintf(humidityLabel, sizeof(humidityLabel), "%.1f", outCommand.setHumidity);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_18, humidityLabel);
-// For turn Interval
-snprintf(turnIntervalLabel, sizeof(turnIntervalLabel), "%d", outCommand.turnInterval);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_20, turnIntervalLabel);
-// for hatching days
-snprintf(hatchingDaysLabel, sizeof(hatchingDaysLabel), "%d", outCommand.hatchingDays);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_17, hatchingDaysLabel);
-// For Incubation days
-snprintf(incubationDaysLabel, sizeof(incubationDaysLabel), "%d", outCommand.incubationDays);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_19, incubationDaysLabel);
-
-// for humidity at hatching days
-snprintf(humidityHatchingLabel, sizeof(humidityHatchingLabel), "%.1f", outCommand.hatchingHumidity);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_6, humidityHatchingLabel);
-}
-
-// Call back function for duck
-static void button_5_event_cb(lv_event_t *e) {
-//   someVariable = 1; // or toggle, increment, whatever you need
-outCommand.setTemp = 37.5;
-outCommand.setHumidity = 60;
-outCommand.incubationDays = 28;
-outCommand.hatchingDays = 25;
-outCommand.hatchingHumidity = 70;
-outCommand.turnInterval = 120;
-char tempLabel[8];
-char humidityLabel[8];
-char turnIntervalLabel[8];
-char hatchingDaysLabel[8];
-char incubationDaysLabel[8];
-char humidityHatchingLabel[8];
-// for set temperature
-snprintf(tempLabel, sizeof(tempLabel), "%.1f", outCommand.setTemp);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_4, tempLabel);
-//For set humidity
-snprintf(humidityLabel, sizeof(humidityLabel), "%.1f", outCommand.setHumidity);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_18, humidityLabel);
-// For turn Interval
-snprintf(turnIntervalLabel, sizeof(turnIntervalLabel), "%d", outCommand.turnInterval);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_20, turnIntervalLabel);
-// for hatching days
-snprintf(hatchingDaysLabel, sizeof(hatchingDaysLabel), "%d", outCommand.hatchingDays);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_17, hatchingDaysLabel);
-// For Incubation days
-snprintf(incubationDaysLabel, sizeof(incubationDaysLabel), "%d", outCommand.incubationDays);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_19, incubationDaysLabel);
-
-// for humidity at hatching days
-snprintf(humidityHatchingLabel, sizeof(humidityHatchingLabel), "%.1f", outCommand.hatchingHumidity);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_6, humidityHatchingLabel);
-}
-// call back for turkey
-static void button_6_event_cb(lv_event_t *e) {
-//   someVariable = 1; // or toggle, increment, whatever you need
-outCommand.setTemp = 37.5;
-outCommand.setHumidity = 60;
-outCommand.incubationDays = 28;
-outCommand.hatchingDays = 25;
-outCommand.hatchingHumidity = 68;
-outCommand.turnInterval = 120;
-char tempLabel[8];
-char humidityLabel[8];
-char turnIntervalLabel[8];
-char hatchingDaysLabel[8];
-char incubationDaysLabel[8];
-char humidityHatchingLabel[8];
-// for set temperature
-snprintf(tempLabel, sizeof(tempLabel), "%.1f", outCommand.setTemp);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_4, tempLabel);
-//For set humidity
-snprintf(humidityLabel, sizeof(humidityLabel), "%.1f", outCommand.setHumidity);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_18, humidityLabel);
-// For turn Interval
-snprintf(turnIntervalLabel, sizeof(turnIntervalLabel), "%d", outCommand.turnInterval);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_20, turnIntervalLabel);
-// for hatching days
-snprintf(hatchingDaysLabel, sizeof(hatchingDaysLabel), "%d", outCommand.hatchingDays);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_17, hatchingDaysLabel);
-// For Incubation days
-snprintf(incubationDaysLabel, sizeof(incubationDaysLabel), "%d", outCommand.incubationDays);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_19, incubationDaysLabel);
-
-// for humidity at hatching days
-snprintf(humidityHatchingLabel, sizeof(humidityHatchingLabel), "%.1f", outCommand.hatchingHumidity);
-lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_6, humidityHatchingLabel);
-}
-static void startAutoIncubation(lv_event_t *e) {
-outCommand.startIncubation = 1;
-}
 void setup() {
   Serial.begin(115200);
 
@@ -383,21 +28,9 @@ void setup() {
     I2C_EXT.onReceive(onReceiveHandler);
     I2C_EXT.onRequest(onRequestHandler);
 
-    // Registering event callback functions
-    lv_obj_add_event_cb(GUI_Button__MotorControl__Button_33, clockwise_button_event_cb, LV_EVENT_ALL, NULL);
-    lv_obj_add_event_cb(GUI_Button__MotorControl__Button_34, anticlockwise_button_event_cb, LV_EVENT_ALL, NULL);
-    lv_obj_add_event_cb(GUI_Switch__MotorControl__Switch_1, heater_switch_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
-    lv_obj_add_event_cb(GUI_Switch__MotorControl__Switch, collector_switch_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
-    // The event for the chicken button
-    lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_3, button_3_event_cb, LV_EVENT_CLICKED, NULL);
-    // The event for guinea fowl button_3_event_cb
-    lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_4, button_4_event_cb, LV_EVENT_CLICKED, NULL);
-    // The event for duck
-     lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_5, button_5_event_cb, LV_EVENT_CLICKED, NULL);
-    // The event for turkey
-    lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_6, button_6_event_cb, LV_EVENT_CLICKED, NULL);
-    // Start auto incubation
-    lv_obj_add_event_cb(GUI_Button__CustomModePopUp__CustomModePopUp_StartButton, startAutoIncubation, LV_EVENT_CLICKED, NULL);
+    useCallback();
+    load_incubation_params();
+    setParametersIfIncubationActive();
     Serial.println("CYD I2C slave ready");
 
     Serial.print("Command packet size: ");
@@ -405,7 +38,7 @@ void setup() {
 
     Serial.print("Sensor packet size: ");
     Serial.println(sizeof(SensorData));
-  lv_last_tick = millis();
+    lv_last_tick = millis();
 }
 
 void loop() {
@@ -471,7 +104,7 @@ snprintf(humText, sizeof(humText), " %.1f", humidity);
 snprintf(daysLeftText, sizeof(daysLeftText), " %d", daysLeft);
 lv_label_set_text(GUI_Label__Home__Label_7, tempText);
 lv_label_set_text(GUI_Label__Home__Room_Humidity,humText);
-lv_label_set_text(GUI_Label__Home__Label_8,daysLeftText);
+lv_label_set_text(GUI_Label__Home__Label_8,daysLeftText); 
 lv_label_set_text(GUI_Label__Home__HOME_TIMEimage,hourText);
 lv_label_set_text(GUI_Label__Available_Networks__AutoMode_TIME_1,hourText);
 
@@ -549,7 +182,9 @@ if(!snapshot.motorStatus){
 // CLockwise button
  // 0 = released, 1 = pressed/held down
 
-
+if(outCommand.startIncubation){
+    setParametersIfIncubationActive();
+}
 
   lv_timer_handler();
   delay(5);
