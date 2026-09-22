@@ -217,7 +217,7 @@ static void collector_switch_event_cb(lv_event_t *e) {
 }
 
 //Automode callback functions
-
+//function for chicken
 static void button_3_event_cb(lv_event_t *e) {
 //   someVariable = 1; // or toggle, increment, whatever you need
 outCommand.setTemp = 37.5;
@@ -225,7 +225,7 @@ outCommand.setHumidity = 62;
 outCommand.incubationDays = 21 ;
 outCommand.hatchingDays = 18;
 outCommand.hatchingHumidity = 70;
-outCommand.turnInterval = 45;
+outCommand.turnInterval = 60;
 char tempLabel[8];
 char humidityLabel[8];
 char turnIntervalLabel[8];
@@ -251,6 +251,116 @@ lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_19, incubationDaysLab
 // for humidity at hatching days
 snprintf(humidityHatchingLabel, sizeof(humidityHatchingLabel), "%.1f", outCommand.hatchingHumidity);
 lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_6, humidityHatchingLabel);
+}
+
+//Function for GuineaFowl
+static void button_4_event_cb(lv_event_t *e) {
+//   someVariable = 1; // or toggle, increment, whatever you need
+outCommand.setTemp = 37.5;
+outCommand.setHumidity = 55;
+outCommand.incubationDays = 28;
+outCommand.hatchingDays = 25;
+outCommand.hatchingHumidity = 70;
+outCommand.turnInterval = 120;
+char tempLabel[8];
+char humidityLabel[8];
+char turnIntervalLabel[8];
+char hatchingDaysLabel[8];
+char incubationDaysLabel[8];
+char humidityHatchingLabel[8];
+// for set temperature
+snprintf(tempLabel, sizeof(tempLabel), "%.1f", outCommand.setTemp);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_4, tempLabel);
+//For set humidity
+snprintf(humidityLabel, sizeof(humidityLabel), "%.1f", outCommand.setHumidity);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_18, humidityLabel);
+// For turn Interval
+snprintf(turnIntervalLabel, sizeof(turnIntervalLabel), "%d", outCommand.turnInterval);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_20, turnIntervalLabel);
+// for hatching days
+snprintf(hatchingDaysLabel, sizeof(hatchingDaysLabel), "%d", outCommand.hatchingDays);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_17, hatchingDaysLabel);
+// For Incubation days
+snprintf(incubationDaysLabel, sizeof(incubationDaysLabel), "%d", outCommand.incubationDays);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_19, incubationDaysLabel);
+
+// for humidity at hatching days
+snprintf(humidityHatchingLabel, sizeof(humidityHatchingLabel), "%.1f", outCommand.hatchingHumidity);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_6, humidityHatchingLabel);
+}
+
+// Call back function for duck
+static void button_5_event_cb(lv_event_t *e) {
+//   someVariable = 1; // or toggle, increment, whatever you need
+outCommand.setTemp = 37.5;
+outCommand.setHumidity = 60;
+outCommand.incubationDays = 28;
+outCommand.hatchingDays = 25;
+outCommand.hatchingHumidity = 70;
+outCommand.turnInterval = 120;
+char tempLabel[8];
+char humidityLabel[8];
+char turnIntervalLabel[8];
+char hatchingDaysLabel[8];
+char incubationDaysLabel[8];
+char humidityHatchingLabel[8];
+// for set temperature
+snprintf(tempLabel, sizeof(tempLabel), "%.1f", outCommand.setTemp);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_4, tempLabel);
+//For set humidity
+snprintf(humidityLabel, sizeof(humidityLabel), "%.1f", outCommand.setHumidity);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_18, humidityLabel);
+// For turn Interval
+snprintf(turnIntervalLabel, sizeof(turnIntervalLabel), "%d", outCommand.turnInterval);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_20, turnIntervalLabel);
+// for hatching days
+snprintf(hatchingDaysLabel, sizeof(hatchingDaysLabel), "%d", outCommand.hatchingDays);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_17, hatchingDaysLabel);
+// For Incubation days
+snprintf(incubationDaysLabel, sizeof(incubationDaysLabel), "%d", outCommand.incubationDays);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_19, incubationDaysLabel);
+
+// for humidity at hatching days
+snprintf(humidityHatchingLabel, sizeof(humidityHatchingLabel), "%.1f", outCommand.hatchingHumidity);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_6, humidityHatchingLabel);
+}
+// call back for turkey
+static void button_6_event_cb(lv_event_t *e) {
+//   someVariable = 1; // or toggle, increment, whatever you need
+outCommand.setTemp = 37.5;
+outCommand.setHumidity = 60;
+outCommand.incubationDays = 28;
+outCommand.hatchingDays = 25;
+outCommand.hatchingHumidity = 68;
+outCommand.turnInterval = 120;
+char tempLabel[8];
+char humidityLabel[8];
+char turnIntervalLabel[8];
+char hatchingDaysLabel[8];
+char incubationDaysLabel[8];
+char humidityHatchingLabel[8];
+// for set temperature
+snprintf(tempLabel, sizeof(tempLabel), "%.1f", outCommand.setTemp);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_4, tempLabel);
+//For set humidity
+snprintf(humidityLabel, sizeof(humidityLabel), "%.1f", outCommand.setHumidity);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_18, humidityLabel);
+// For turn Interval
+snprintf(turnIntervalLabel, sizeof(turnIntervalLabel), "%d", outCommand.turnInterval);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_20, turnIntervalLabel);
+// for hatching days
+snprintf(hatchingDaysLabel, sizeof(hatchingDaysLabel), "%d", outCommand.hatchingDays);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_17, hatchingDaysLabel);
+// For Incubation days
+snprintf(incubationDaysLabel, sizeof(incubationDaysLabel), "%d", outCommand.incubationDays);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_19, incubationDaysLabel);
+
+// for humidity at hatching days
+snprintf(humidityHatchingLabel, sizeof(humidityHatchingLabel), "%.1f", outCommand.hatchingHumidity);
+lv_label_set_text(GUI_Label__Set_ParametersAutoMode__Label_6, humidityHatchingLabel);
+}
+static void startAutoIncubation(lv_event_t *e) {
+outCommand.startIncubation = 1;
 }
 void setup() {
   Serial.begin(115200);
@@ -280,6 +390,14 @@ void setup() {
     lv_obj_add_event_cb(GUI_Switch__MotorControl__Switch, collector_switch_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
     // The event for the chicken button
     lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_3, button_3_event_cb, LV_EVENT_CLICKED, NULL);
+    // The event for guinea fowl button_3_event_cb
+    lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_4, button_4_event_cb, LV_EVENT_CLICKED, NULL);
+    // The event for duck
+     lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_5, button_5_event_cb, LV_EVENT_CLICKED, NULL);
+    // The event for turkey
+    lv_obj_add_event_cb(GUI_Button__Set_ParametersAutoMode__Button_6, button_6_event_cb, LV_EVENT_CLICKED, NULL);
+    // Start auto incubation
+    lv_obj_add_event_cb(GUI_Button__CustomModePopUp__CustomModePopUp_StartButton, startAutoIncubation, LV_EVENT_CLICKED, NULL);
     Serial.println("CYD I2C slave ready");
 
     Serial.print("Command packet size: ");

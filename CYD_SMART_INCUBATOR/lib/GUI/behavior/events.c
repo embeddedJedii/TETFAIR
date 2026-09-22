@@ -94,21 +94,25 @@ void GUI_event__Button__Set_ParametersCustomMode__Button_22__Clicked(lv_event_t 
                       &GUI_initScreen__Set_ParametersCustomMode); // Change_Screen
 }
 
+// void GUI_event__Textarea__Set_ParametersCustomMode__Textarea__Clicked(lv_event_t *event) {
+//     lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
+//                              GUI_Textarea__Set_ParametersCustomMode__Textarea); // Keyboard_Set_Target
+//     lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
+//                              GUI_Textarea__Set_ParametersCustomMode__Textarea_1); // Keyboard_Set_Target
+//     lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
+//                              GUI_Textarea__Set_ParametersCustomMode__Textarea_2); // Keyboard_Set_Target
+//     lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
+//                              GUI_Textarea__Set_ParametersCustomMode__Textarea_3); // Keyboard_Set_Target
+//     lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
+//                              GUI_Textarea__Set_ParametersCustomMode__Textarea_7); // Keyboard_Set_Target
+//     lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
+//                              GUI_Textarea__Set_ParametersCustomMode__Textarea_8); // Keyboard_Set_Target
+// }
+
 void GUI_event__Textarea__Set_ParametersCustomMode__Textarea__Clicked(lv_event_t *event) {
     lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
-                             GUI_Textarea__Set_ParametersCustomMode__Textarea); // Keyboard_Set_Target
-    lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
-                             GUI_Textarea__Set_ParametersCustomMode__Textarea_1); // Keyboard_Set_Target
-    lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
-                             GUI_Textarea__Set_ParametersCustomMode__Textarea_2); // Keyboard_Set_Target
-    lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
-                             GUI_Textarea__Set_ParametersCustomMode__Textarea_3); // Keyboard_Set_Target
-    lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
-                             GUI_Textarea__Set_ParametersCustomMode__Textarea_7); // Keyboard_Set_Target
-    lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
-                             GUI_Textarea__Set_ParametersCustomMode__Textarea_8); // Keyboard_Set_Target
+                             GUI_Textarea__Set_ParametersCustomMode__Textarea);
 }
-
 void GUI_event__Textarea__Set_ParametersCustomMode__Textarea_1__Clicked(lv_event_t *event) {
     lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
                              GUI_Textarea__Set_ParametersCustomMode__Textarea_1); // Keyboard_Set_Target
@@ -134,15 +138,21 @@ void GUI_event__Textarea__Set_ParametersCustomMode__Textarea_8__Clicked(lv_event
                              GUI_Textarea__Set_ParametersCustomMode__Textarea_8); // Keyboard_Set_Target
 }
 
+// void GUI_event__Button__Set_ParametersCustomMode__Button_24__Clicked(lv_event_t *event) {
+//     _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
+// }
+
 void GUI_event__Button__Set_ParametersCustomMode__Button_24__Clicked(lv_event_t *event) {
-    _ui_screen_change(&GUI_Screen__Home, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &GUI_initScreen__Home); // Change_Screen
+    _ui_screen_change(&GUI_Screen__CustomModePopUp, LV_SCR_LOAD_ANIM_NONE, 0, 0,
+                      &GUI_initScreen__CustomModePopUp); // Change_Screen
 }
+// void GUI_event__Keyboard__Set_ParametersCustomMode__Keyboard_2__Clicked(lv_event_t *event) {
+//     lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
+//                              GUI_Textarea__Set_ParametersCustomMode__Textarea); // Keyboard_Set_Target
+// }
 
 void GUI_event__Keyboard__Set_ParametersCustomMode__Keyboard_2__Clicked(lv_event_t *event) {
-    lv_keyboard_set_textarea(GUI_Keyboard__Set_ParametersCustomMode__Keyboard_2,
-                             GUI_Textarea__Set_ParametersCustomMode__Textarea); // Keyboard_Set_Target
-}
-
+}   
 void GUI_event__Button__Set_ParametersAutoMode__Button_13__Clicked(lv_event_t *event) {
     _ui_screen_change(&GUI_Screen__Set_ParametersCustomMode, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 0, 0,
                       &GUI_initScreen__Set_ParametersCustomMode); // Change_Screen
