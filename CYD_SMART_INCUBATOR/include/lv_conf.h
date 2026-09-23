@@ -53,8 +53,8 @@
 
 #if LV_USE_STDLIB_MALLOC == LV_STDLIB_BUILTIN
     /*Size of the memory available for `lv_malloc()` in bytes (>= 2kB)*/
-    #define LV_MEM_SIZE (256 * 1024U)          /*[bytes] bumped from the 64K default -- FabNest builds all 10 screens/widgets up front at boot*/
-
+    // #define LV_MEM_SIZE (256 * 1024U)          /*[bytes] bumped from the 64K default -- FabNest builds all 10 screens/widgets up front at boot*/
+    #define LV_MEM_SIZE (200 * 1024U)          /*[bytes] bumped from the 64K default -- FabNest builds all 10 screens/widgets up front at boot*/
     /*Size of the memory expand for `lv_malloc()` in bytes*/
     #define LV_MEM_POOL_EXPAND_SIZE 0
 

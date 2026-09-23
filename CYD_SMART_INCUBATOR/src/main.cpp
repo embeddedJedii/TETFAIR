@@ -3,6 +3,7 @@
 #include "GUI.h"
 #include "I2C.h"
 #include "eventCallbacks.h"
+#include "wifiUpdate.h"
 static uint32_t lv_last_tick = 0;
 
 // Motor_callback
@@ -27,7 +28,11 @@ void setup() {
 
     I2C_EXT.onReceive(onReceiveHandler);
     I2C_EXT.onRequest(onRequestHandler);
-
+    lv_obj_add_flag(GUI_Button__Available_Networks__AvailableNetworks1, LV_OBJ_FLAG_HIDDEN);
+lv_obj_set_flex_flow(GUI_Container__Available_Networks__container_8, LV_FLEX_FLOW_COLUMN);
+lv_obj_add_flag(GUI_Container__Available_Networks__container_8, LV_OBJ_FLAG_SCROLLABLE);
+lv_obj_set_scroll_dir(GUI_Container__Available_Networks__container_8, LV_DIR_VER);
+wifi_list_setup();
     useCallback();
     load_incubation_params();
     setParametersIfIncubationActive();
@@ -115,6 +120,7 @@ lv_label_set_text(GUI_Label__PaswordInputPopUp__AutoMode_TIME_2,hourText);
 lv_label_set_text(GUI_Label__Screen__HOME_TIMEimage_2,hourText);
 lv_label_set_text(GUI_Label__Set_ParametersAutoMode__AutoMode_TIME,hourText);
 lv_label_set_text(GUI_Label__Set_ParametersCustomMode__CustomMode_TIME,hourText);
+wifi_list_loop(); 
 
 if(!snapshot.temperature || !snapshot.humidity){
         lv_label_set_text(
@@ -182,10 +188,11 @@ if(!snapshot.motorStatus){
 // CLockwise button
  // 0 = released, 1 = pressed/held down
 
-if(outCommand.startIncubation){
+if(outCommand.stopIncubation){
     setParametersIfIncubationActive();
 }
 
   lv_timer_handler();
   delay(5);
 }
+

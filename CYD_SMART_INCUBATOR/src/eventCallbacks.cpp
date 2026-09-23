@@ -264,13 +264,14 @@ static void stopAutoIncubation(lv_event_t *e) {
 outCommand.startIncubation = 0;
 outCommand.stopIncubation = 1;
 outCommand.fanStatusCYD = 0;
+outCommand.turnInterval = 0;
 outCommand.hatchingDays= 0;
-outCommand.hatchingHumidity= 0;
+outCommand.hatchingHumidity= 0.00;
 outCommand.heaterStatusCYD = 0;
 outCommand.incubationDays = 0;
 outCommand.motorStatusCYD= 0;
-outCommand.setHumidity = 0.0;
-outCommand.setTemp = 0.0;
+outCommand.setHumidity = 0.00;
+outCommand.setTemp = 0.00;
   prefs.begin(PREFS_NAMESPACE, false);
   prefs.putFloat("setTemp", 0.0);
   prefs.putFloat("setHumidity", 0.0);

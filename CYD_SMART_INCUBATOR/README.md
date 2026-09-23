@@ -1,4 +1,4 @@
-# FabNest — CYD (ESP32-8048S070C) — ready to build
+# SOLHATCH — CYD (ESP32-8048S070C) — ready to build
 
 This is a complete PlatformIO project. Nothing else needs to be downloaded or generated —
 open the folder in PlatformIO, plug in the board, build, upload.
