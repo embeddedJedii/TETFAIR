@@ -135,7 +135,7 @@
 #include "wifiUpdate.h"
 #include "GUI.h"
 #include <WiFi.h>
-
+#include <I2C.h>
 #define MAX_WIFI_ROWS 20
 static lv_obj_t *wifi_row_objs[MAX_WIFI_ROWS];
 static char *wifi_row_ssids[MAX_WIFI_ROWS];
@@ -155,19 +155,61 @@ static void clear_wifi_list() {
     wifi_row_count = 0;
 }
 
+// static void wifi_row_clicked_event_cb(lv_event_t *e) {
+//     const char *ssid = (const char *)lv_event_get_user_data(e);
+//     strncpy(selectedSSID, ssid, sizeof(selectedSSID) - 1);
+//     selectedSSID[sizeof(selectedSSID) - 1] = '\0';
+//     _ui_screen_change(&GUI_Screen__PaswordInputPopUp, LV_SCR_LOAD_ANIM_NONE, 0, 0,
+//                       &GUI_initScreen__PaswordInputPopUp);
+// }
 static void wifi_row_clicked_event_cb(lv_event_t *e) {
     const char *ssid = (const char *)lv_event_get_user_data(e);
     strncpy(selectedSSID, ssid, sizeof(selectedSSID) - 1);
     selectedSSID[sizeof(selectedSSID) - 1] = '\0';
+    strncpy(outCommand.SSID, ssid,
+         sizeof(outCommand.Password) - 1);
+     outCommand.SSID[sizeof(outCommand.SSID) - 1] = '\0';   
     _ui_screen_change(&GUI_Screen__PaswordInputPopUp, LV_SCR_LOAD_ANIM_NONE, 0, 0,
                       &GUI_initScreen__PaswordInputPopUp);
+
+    lv_label_set_text(GUI_Label__PaswordInputPopUp__label_75, selectedSSID);
 }
+// static void add_wifi_row(const char *ssid, bool locked) {
+//     if (wifi_row_count >= MAX_WIFI_ROWS) return;
+
+//     lv_obj_t *row = lv_button_create(GUI_Container__Available_Networks__container_8);
+//     lv_obj_set_size(row, 588, 50);
+//     lv_obj_set_style_bg_opa(row, 0, LV_PART_MAIN);
+//     lv_obj_set_style_border_side(row, LV_BORDER_SIDE_BOTTOM, LV_PART_MAIN);
+//     lv_obj_set_style_border_width(row, 1, LV_PART_MAIN);
+//     lv_obj_set_style_border_color(row, lv_color_make(3, 64, 34), LV_PART_MAIN);
+
+//     lv_obj_t *label = lv_label_create(row);
+//     lv_label_set_text(label, ssid);
+//     lv_obj_set_style_text_color(label, lv_color_make(3, 64, 34), LV_PART_MAIN);
+//     lv_obj_align(label, LV_ALIGN_LEFT_MID, 10, 0);
+
+//     if (locked) {
+//         lv_obj_t *lock_icon = lv_image_create(row);
+//         lv_image_set_src(lock_icon, &upload_frame_38_png);
+//         lv_obj_align(lock_icon, LV_ALIGN_RIGHT_MID, -10, 0);
+//     }
+
+//     char *ssid_copy = strdup(ssid);
+//     lv_obj_add_event_cb(row, wifi_row_clicked_event_cb, LV_EVENT_CLICKED, ssid_copy);
+
+//     wifi_row_objs[wifi_row_count] = row;
+//     wifi_row_ssids[wifi_row_count] = ssid_copy;
+//     wifi_row_count++;
+// }
 
 static void add_wifi_row(const char *ssid, bool locked) {
     if (wifi_row_count >= MAX_WIFI_ROWS) return;
 
     lv_obj_t *row = lv_button_create(GUI_Container__Available_Networks__container_8);
     lv_obj_set_size(row, 588, 50);
+    lv_obj_set_align(row, LV_ALIGN_TOP_LEFT);
+    lv_obj_set_pos(row, 24, 100 + wifi_row_count * 58);
     lv_obj_set_style_bg_opa(row, 0, LV_PART_MAIN);
     lv_obj_set_style_border_side(row, LV_BORDER_SIDE_BOTTOM, LV_PART_MAIN);
     lv_obj_set_style_border_width(row, 1, LV_PART_MAIN);
@@ -219,25 +261,36 @@ static void start_wifi_scan() {
 //     lv_obj_add_flag(GUI_Container__Available_Networks__container_8, LV_OBJ_FLAG_SCROLLABLE);
 //     lv_obj_set_scroll_dir(GUI_Container__Available_Networks__container_8, LV_DIR_VER);
 // }
+
 void wifi_list_setup() {
     lv_obj_add_flag(GUI_Button__Available_Networks__AvailableNetworks1, LV_OBJ_FLAG_HIDDEN);
-    lv_obj_set_flex_flow(GUI_Container__Available_Networks__container_8, LV_FLEX_FLOW_COLUMN);
     lv_obj_add_flag(GUI_Container__Available_Networks__container_8, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_set_scroll_dir(GUI_Container__Available_Networks__container_8, LV_DIR_VER);
 
-    // "WiFi Networks" title was a child of container_8, sharing its flex layout
-    // with the dynamic rows -- no amount of repositioning inside that container
-    // avoids collision, since the rows flow from the container's own top edge
-    // regardless of where the title sits. Moving it out to the screen directly,
-    // as a heading positioned just above the white card (container_8's top edge
-    // is at y=-174), removes it from that layout entirely.
-    lv_obj_set_parent(GUI_Label__Available_Networks__Label_3, GUI_Screen__Available_Networks);
-    lv_obj_set_align(GUI_Label__Available_Networks__Label_3, LV_ALIGN_CENTER);
-    lv_obj_set_pos(GUI_Label__Available_Networks__Label_3, -224, -130);
-    // lv_obj_set_pos(GUI_Label__Available_Networks__Label_3, -250, -200); // was -280, -215
-    // Stray duplicate WiFi icon, separate from the real header status icon
+    lv_obj_set_pos(GUI_Label__Available_Networks__Label_3, -224, -115);
     lv_obj_add_flag(GUI_Image__Available_Networks__Image_4, LV_OBJ_FLAG_HIDDEN);
+     lv_obj_add_flag(GUI_Label__Available_Networks__Label_3, LV_OBJ_FLAG_HIDDEN);
 }
+// void wifi_list_setup() {
+//     lv_obj_add_flag(GUI_Button__Available_Networks__AvailableNetworks1, LV_OBJ_FLAG_HIDDEN);
+//     lv_obj_set_flex_flow(GUI_Container__Available_Networks__container_8, LV_FLEX_FLOW_COLUMN);
+//     lv_obj_add_flag(GUI_Container__Available_Networks__container_8, LV_OBJ_FLAG_SCROLLABLE);
+//     lv_obj_set_scroll_dir(GUI_Container__Available_Networks__container_8, LV_DIR_VER);
+
+//     // "WiFi Networks" title was a child of container_8, sharing its flex layout
+//     // with the dynamic rows -- no amount of repositioning inside that container
+//     // avoids collision, since the rows flow from the container's own top edge
+//     // regardless of where the title sits. Moving it out to the screen directly,
+//     // as a heading positioned just above the white card (container_8's top edge
+//     // is at y=-174), removes it from that layout entirely.
+//     lv_obj_set_parent(GUI_Label__Available_Networks__Label_3, GUI_Screen__Available_Networks);
+//     lv_obj_set_align(GUI_Label__Available_Networks__Label_3, LV_ALIGN_CENTER);
+//     lv_obj_set_pos(GUI_Label__Available_Networks__Label_3, -224, -130);
+//      //lv_obj_set_pos(GUI_Label__Available_Networks__Label_3, -100, -200);
+//     // lv_obj_set_pos(GUI_Label__Available_Networks__Label_3, -250, -200); // was -280, -215
+//     // Stray duplicate WiFi icon, separate from the real header status icon
+//     lv_obj_add_flag(GUI_Image__Available_Networks__Image_4, LV_OBJ_FLAG_HIDDEN);
+// }
 void wifi_list_loop() {
     lv_obj_t *current_screen = lv_screen_active();
     if (current_screen != last_active_screen) {
@@ -248,3 +301,4 @@ void wifi_list_loop() {
     }
     poll_wifi_scan();
 }
+

@@ -217,7 +217,7 @@ static void start_incubation_custom_cb(lv_event_t *e) {
 // outCommand.incubationDays = 28;
 // outCommand.hatchingDays = 25;
 // outCommand.hatchingHumidity = 68;
-// outCommand.turnInterval = 120;
+// outCommand.turnInterval = 120; 
   outCommand.setTemp          = atof(lv_textarea_get_text(GUI_Textarea__Set_ParametersCustomMode__Textarea));
   outCommand.setHumidity      = atof(lv_textarea_get_text(GUI_Textarea__Set_ParametersCustomMode__Textarea_7));
   outCommand.incubationDays   = (uint16_t)atoi(lv_textarea_get_text(GUI_Textarea__Set_ParametersCustomMode__Textarea_1));
@@ -282,6 +282,24 @@ outCommand.setTemp = 0.00;
   prefs.putBool("incubActive", false);
   prefs.end();
 }
+
+static void button_connect_event_cb(lv_event_t * e)
+{
+    const char *password =
+        lv_textarea_get_text(
+            GUI_Textarea__PaswordInputPopUp__Textarea_4
+        );
+
+    strncpy(outCommand.Password, password,
+            sizeof(outCommand.Password) - 1);
+
+    outCommand.Password[sizeof(outCommand.Password) - 1] = '\0';
+
+    // Serial.print("Password: ");
+    // Serial.println(outCommand.Password);
+}
+//
+// GUI_Textarea__PaswordInputPopUp__Textarea_4
 void useCallback (){
         // Registering event callback functions
     lv_obj_add_event_cb(GUI_Button__MotorControl__Button_33, clockwise_button_event_cb, LV_EVENT_ALL, NULL);
@@ -303,6 +321,8 @@ void useCallback (){
     lv_obj_add_event_cb(GUI_Button__Set_ParametersCustomMode__Button_24, start_incubation_custom_cb, LV_EVENT_CLICKED, NULL);
     //Stop Incubation
     lv_obj_add_event_cb(GUI_Button__Screen__Button_2, stopAutoIncubation, LV_EVENT_CLICKED, NULL);
+    //Wifi connect button
+    lv_obj_add_event_cb( GUI_Button__PaswordInputPopUp__AvailableNetworksPopUp_Connect_Button,button_connect_event_cb, LV_EVENT_CLICKED, NULL);
 
 }
 

@@ -203,7 +203,7 @@ void GUI_initScreenStyles__PaswordInputPopUp() {
     lv_style_set_radius(&GUI_Style__Image__PaswordInputPopUp__image_25__MAIN_DEFAULT, 0);
     lv_style_set_bg_image_src(&GUI_Style__Image__PaswordInputPopUp__image_25__MAIN_DEFAULT,
                               &upload_availablenetworks_png);
-    lv_style_set_bg_image_opa(&GUI_Style__Image__PaswordInputPopUp__image_25__MAIN_DEFAULT, 255);
+    lv_style_set_bg_image_opa(&GUI_Style__Image__PaswordInputPopUp__image_25__MAIN_DEFAULT, 255); 
     lv_style_set_blend_mode(&GUI_Style__Image__PaswordInputPopUp__image_25__MAIN_DEFAULT, LV_BLEND_MODE_NORMAL);
     lv_style_set_opa(&GUI_Style__Image__PaswordInputPopUp__image_25__MAIN_DEFAULT, 255);
     lv_obj_add_style(GUI_Image__PaswordInputPopUp__image_25,

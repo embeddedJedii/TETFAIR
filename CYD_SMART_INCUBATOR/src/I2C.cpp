@@ -107,8 +107,8 @@ CommandPacket outCommand =
     0, //fanStatusCYD
     70.0,    // hatchingHumidity
 
-    "ICT",
-    "INNOV8HUB"
+    "",
+    ""
 };
 
 
