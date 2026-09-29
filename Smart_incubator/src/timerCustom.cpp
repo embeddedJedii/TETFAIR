@@ -6,24 +6,27 @@
 #include "time.h"
 #include "turningSystem.h"
 #include "temperature.h"
+#include "i2c.h"
 const char* ssid = "ICT"; //Received from CYD
 const char* password = "INNOV8HUB";
 const long gmtOffset_sec = 3600;      // WAT = UTC+1
 const int daylightOffset_sec = 0;     // Nigeria doesn't use DST
 RTC_DS3231 rtc;   
 Preferences preferences;
-int TOTAL_INCUBATION_DAYS = 21; //Change this accordingly after integrating the I2C communication with the CYD
+int TOTAL_INCUBATION_DAYS = receivedCommand.incubationDays; //Change this accordingly after integrating the I2C communication with the CYD
 
 bool incubationActive = false; //This should be gotten from the CYD
 
 uint32_t incubationStartTime = 0; 
 uint8_t circulationFan = 33;
+uint8_t collectorFanPin = 27;
 int incubationDay = 0;
-
 uint32_t elapsedSeconds = 0;
 void ciculationFanInit (){
   pinMode(circulationFan, OUTPUT);
   digitalWrite(circulationFan, LOW); // Turn off circulation fan initially
+  pinMode(collectorFanPin,OUTPUT);
+  digitalWrite(collectorFanPin, LOW);
 }
 void syncRTCviaNTP() {
   WiFi.begin(ssid, password);
@@ -96,39 +99,6 @@ void startIncubation()
     // tURN ON CIRCULATION FAN WHEN INCUBATION STARTS
     digitalWrite(circulationFan, HIGH); // Turn on circulation fan
 }
-// void startIncubation()
-// {
-//     DateTime now = rtc.now();
-
-//     // Convert RTC date/time to Unix timestamp
-//     incubationStartTime = now.unixtime();
-
-//     incubationActive = true;
-
-//     // Save to ESP32 NVS
-//     preferences.putBool("active", true);
-//     preferences.putUInt("start", incubationStartTime);
-
-//     Serial.println();
-//     Serial.println("================================");
-//     Serial.println("INCUBATION STARTED");
-//     Serial.println("================================");
-
-//     Serial.print("Start time: ");
-//     Serial.print(now.year());
-//     Serial.print("-");
-//     Serial.print(now.month());
-//     Serial.print("-");
-//     Serial.print(now.day());
-
-//     Serial.print(" ");
-
-//     Serial.print(now.hour());
-//     Serial.print(":");
-//     Serial.print(now.minute());
-//     Serial.print(":");
-//     Serial.println(now.second());
-// }
 
 void stopIncubation()
 {
@@ -139,7 +109,8 @@ void stopIncubation()
     incubationDay = 0;
 
     elapsedSeconds = 0;
-
+    digitalWrite(circulationFan, LOW);
+    digitalWrite(collectorFanPin, LOW);
     // Save inactive state
     preferences.putBool("active", false);
     preferences.putUInt("start", 0);
@@ -149,43 +120,6 @@ void stopIncubation()
     Serial.println("================================");
 }
 
-// void loadIncubation()
-// {
-//     incubationActive =
-//         preferences.getBool("active", false);
-
-//     incubationStartTime =
-//         preferences.getUInt("start", 0);
-
-
-//     if (incubationActive && incubationStartTime != 0)
-//     {
-//         Serial.println();
-//         Serial.println("Saved incubation found.");
-
-//         DateTime startTime(incubationStartTime);
-
-//         Serial.print("Started: ");
-
-//         Serial.print(startTime.year());
-//         Serial.print("-");
-//         Serial.print(startTime.month());
-//         Serial.print("-");
-//         Serial.print(startTime.day());
-
-//         Serial.print(" ");
-
-//         Serial.print(startTime.hour());
-//         Serial.print(":");
-//         Serial.print(startTime.minute());
-//         Serial.print(":");
-//         Serial.println(startTime.second());
-//     }
-//     else
-//     {
-//         Serial.println("No active incubation.");
-//     }
-// }
 void loadIncubation()
 {
     incubationActive =
@@ -193,7 +127,6 @@ void loadIncubation()
 
     incubationStartTime =
         preferences.getUInt("start", 0);
-    
     DateTime now = rtc.now();
     lastTurnTime = now.unixtime();
 
@@ -223,13 +156,6 @@ void updateIncubation()
     // Calculate elapsed seconds
     elapsedSeconds =
         now.unixtime() - incubationStartTime;
-
-
-    // Calculate incubation day
-    //
-    // First 24 hours = Day 1
-    // 24-48 hours   = Day 2
-    // etc.
 
     incubationDay =
         (elapsedSeconds / 86400) + 1;
@@ -357,9 +283,22 @@ uint16_t sendIncubationDays(){
 
     uint16_t days =
         elapsedSeconds / 86400;
-    return days;
+    return TOTAL_INCUBATION_DAYS - days;
 }
 
+void collectorFan(){
+      DateTime now = rtc.now();
+      uint32_t hours =
+        (elapsedSeconds % 86400) / 3600;
+    if(incubationActive && hours <= 19){
+        Serial.println("Cololector fan is now active");
+        // Turn on collector fan  
+        digitalWrite(collectorFanPin, HIGH);
+    }else{
+        // Turn off the collector fan
+        digitalWrite(collectorFanPin, LOW);
+    }
+}
 // void eggTurningControl(){
 //   int lastTurnTime = 0;
 //   const uint32_t TURN_INTERVAL = 4UL * 60UL * 60UL;  // 4 hours // CHANGE THIS ACCORDINGLY
@@ -399,3 +338,13 @@ uint16_t sendIncubationDays(){
 //     }
 // }
 
+uint8_t getHour(){
+    DateTime now = rtc.now();
+    uint8_t hour = now.hour();
+    return hour;
+}
+uint8_t getMinutes(){
+    DateTime now = rtc.now();
+    uint8_t minutes = now.minute();
+    return minutes;
+}

@@ -2,6 +2,7 @@
 #include <Wire.h>
 #include <Adafruit_SHT31.h>
 #include "temperature.h"
+#include "i2c.h"
 #include "I2Cinit.h"
 #include "buzzer.h"
 #include "timerCustom.h"
@@ -13,10 +14,18 @@ Adafruit_SHT31 sht2 = Adafruit_SHT31(&I2Cbus2);   // sensor 2 on bus 2
 uint8_t HUMIDIFIER_PIN = 14; // Pin to control the humidifier
 uint8_t HEATER_PIN = 5; // Pin to control the heater
 uint8_t EXHAUST_FAN_PIN = 26; // Pin to control the exhaust fan
-float setTemp = 32.0;
-float setHumid = 60.0;
+float setTemp;
+float setHumid;
+
+
 float temp;
 float humid;
+// void updateValues(){
+// setTemp = receivedCommand.setTemp;
+// setHumidity = receivedCommand.setHumidity;
+// hatchingDay = receivedCommand.hatchingDays;
+// hatchingHumidity = receivedCommand.hatchingHumidity;
+// }
 void tempPinInit(){
   pinMode(HEATER_PIN, OUTPUT);
   digitalWrite(HEATER_PIN, LOW);
@@ -42,7 +51,6 @@ void tempHumidInit(){
   }
 
 }
-
 float getTemp(){
   float t1 = sht1.readTemperature();
   float t2 = sht2.readTemperature();
@@ -86,9 +94,9 @@ void checkTempHumFault(){
   if (isnan(t1) || isnan(t2) || isnan(h1) || isnan(h2)) {
     Serial.println("Temperature or Humidity sensor fault detected!");
     buzzerOn(); // Activate buzzer on fault
-    delay(1000); 
+    delay(500); 
     buzzerOff();
-    delay(1000);
+    delay(500);
   } else {
     buzzerOff(); // Deactivate buzzer if no fault
   }
@@ -97,26 +105,32 @@ void checkTempHumFault(){
 void checkTempHumOvershoot(){
   float temp = getTemp();
   float humid = getHumidity();
-
-  if(temp > setTemp + 5.0 || humid > setHumid + 10.0) { //This can be changed according to the specified humidity.
+  if(!receivedCommand.stopIncubation){
+  if(temp > receivedCommand.setTemp + 5.0 || humid > receivedCommand.setHumidity + 10.0) { //This can be changed according to the specified humidity.
     Serial.println("Temperature or Humidity overshoot detected!");
     buzzerOn(); // Activate buzzer on overshoot
-    delay(1000); 
+    delay(500); 
     buzzerOff();
-    delay(1000);
+    delay(500);
   } else {
     buzzerOff(); // Deactivate buzzer if no overshoot
   }
+}
 }
 
 
 void heaterLogic()
 {
-    const float HYSTERESIS = 0.5;
+    const float HYSTERESIS = 2.5;
 
     float temp = getTemp();
+    // Manual fallback to turn off the heater incase the system malfunctions
+    if(!receivedCommand.heaterStatusCYD) {
+        Serial.println("Temperature high. Turning heater OFF.");
 
-    if (temp <= setTemp - HYSTERESIS)
+        digitalWrite(HEATER_PIN, LOW);
+        digitalWrite(EXHAUST_FAN_PIN, HIGH);
+    } else if (temp <= receivedCommand.setTemp - HYSTERESIS)
     {
         // Temperature is significantly below setpoint
         Serial.println("Temperature low. Turning heater ON.");
@@ -124,7 +138,7 @@ void heaterLogic()
         digitalWrite(HEATER_PIN, HIGH);
         digitalWrite(EXHAUST_FAN_PIN, LOW);
     }
-    else if (temp >= setTemp + HYSTERESIS)
+    else if (temp >= receivedCommand.setTemp + HYSTERESIS)
     {
         // Temperature is significantly above setpoint
         Serial.println("Temperature high. Turning heater OFF.");
@@ -141,7 +155,7 @@ void humidifierInit(){
 }
 void humidifierLogic(){
      uint16_t humidity = getHumidity();
-     if(humidity < setHumid) {
+     if(humidity < receivedCommand.setHumidity) {
         // Turn on humidifier
         Serial.println("Humidity below setpoint. Turning on humidifier.");
         digitalWrite(HUMIDIFIER_PIN, HIGH);

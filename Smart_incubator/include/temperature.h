@@ -16,7 +16,8 @@ extern uint8_t hatchingHumidity;
 extern uint8_t HUMIDIFIER_PIN;
 extern uint8_t HEATER_PIN;
 extern uint8_t EXHAUST_FAN_PIN;
-
+extern float setTemp;
+extern float setHumid;
 void tempPinInit();
 void tempHumidInit();
 float getTemp();
@@ -28,3 +29,4 @@ void hatchingAlgorithm();
 void humidifierLogicHatching();
 void checkTempHumFault();
 void checkTempHumOvershoot();
+void updateValues();

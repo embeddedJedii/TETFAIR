@@ -17,18 +17,22 @@ void setup() {
     preferences.begin(
         "incubator",
         false
-    );
+    ); 
     loadIncubation();
     limitSwitchInit();
     motorPinsInit();
     humidifierInit();  
     initializePacket();
-    connectToWifi ();
+    
+    initializeFirebase();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  //put your main code here, to run repeatedly:
   isConnected();
+//   connectToWifi ();
+   sendDataToDB();
+//syncRTCviaNTP();
   float temperature = getTemp(); 
   float humidity = getHumidity();
   printIncubationStatus();
@@ -39,23 +43,12 @@ void loop() {
   checkTempHumFault();
   checkTempHumOvershoot();
   sendSensorData();
-  delay(100);
+//   delay(100);
   receiveCommandFromCYD();
-  delay(900);
-//   Serial.println("The last turn time is:");
-//   Serial.println(lastTurnTime);
-//   Serial.println("The incubation active status is:");
-//   Serial.println(incubationActive);
-//   Serial.println("The incubation day is:");
-//   Serial.println(incubationDay);
-//   Serial.println("The hatching day is:"); 
-//   Serial.println(hatchingDay);
-//   Serial.println("Motor turning status:");
-// Serial.println(motorTurning);
-//syncRTCviaNTP();
-//   motorAction();
+//   delay(100); //900
+//  updateValues();
  //The following should be replaced with the start and stop command from the CYD
-
+// if(!receivedCommand.startIncubation) buzzerOff();
      if (Serial.available())
     {
         char command =
@@ -75,7 +68,10 @@ void loop() {
             stopIncubation();
         }
     }
-  delay(2000);
+
+    Serial.println("Receiveeeeeeeee");
+    Serial.println(receivedCommand.hatchingDays);
+//   delay(100);
 }
 
  

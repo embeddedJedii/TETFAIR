@@ -2,7 +2,9 @@
 #include <Wire.h>
 #include "temperature.h"
 #include "i2c.h"
-
+#include "timerCustom.h"
+#include "internet.h"
+#include "buzzer.h"
 // Received command from CYD
 CommandPacket receivedCommand;
 
@@ -41,10 +43,12 @@ void sendSensorData()
     // incubation variables
     // ----------------------------------
 
-    outPacket.daysLeft = 10;
-    outPacket.hour = 14;
-    outPacket.minutes = 35;
-    outPacket.wifiStatus = 2;
+    outPacket.daysLeft = sendIncubationDays();
+    outPacket.hour = getHour();
+    outPacket.minutes = getMinutes();
+    outPacket.wifiStatus = wifiCode;
+    outPacket.heaterStatus = 0;
+    outPacket.motorStatus = 0;
 
     // ----------------------------------
     // Send packet to CYD
@@ -135,9 +139,26 @@ void receiveCommandFromCYD()
 
         Serial.print("SSID: ");
         Serial.println(receivedCommand.SSID);
-
+        Serial.println("ICT");
         Serial.print("Password: ");
         Serial.println(receivedCommand.Password);
+         Serial.println("INNOV8HUB");
+//         if(receivedCommand.stopIncubation == 1){
+//             Serial.println("hddgjwgggggggggggg");
+//     buzzerOff();
+// }else if(receivedCommand.startIncubation == 0){
+//     buzzerOff();
+// }
+        Serial.print("Motor CYD: ");
+        Serial.println(receivedCommand.motorStatusCYD);
+
+        
+        Serial.print("Heater CYD: ");
+        Serial.println(receivedCommand.heaterStatusCYD);
+
+        
+        Serial.print("Fan CYD ");
+        Serial.println(receivedCommand.fanStatusCYD);
 
         Serial.println("============================");
     }

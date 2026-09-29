@@ -22,6 +22,8 @@ struct SensorData
     uint8_t hour;
     uint8_t minutes;
     uint8_t wifiStatus;
+    uint8_t motorStatus;
+    uint8_t heaterStatus;
 };
 
 // ================================
@@ -40,6 +42,10 @@ struct CommandPacket
 
     uint32_t turnInterval;
 
+    uint8_t heaterStatusCYD;
+    uint8_t motorStatusCYD;
+    uint8_t fanStatusCYD;
+
     float hatchingHumidity;
 
     char SSID[33];
@@ -49,7 +55,21 @@ struct CommandPacket
 #pragma pack(pop)
 
 extern CommandPacket receivedCommand;
+// extern uint8_t hatchingDay;
+// extern float hatchingHumidity;
+// extern uint8_t stopIncubation;
+// extern uint8_t startIncubation;
+ extern    float setTemp;
+extern    float setHumidity;
+// extern     uint16_t incubationDays;
 
+// extern    uint32_t turnInterval;
+
+// extern    uint8_t heaterStatusCYD;
+// extern   uint8_t motorStatusCYD;
+// extern    uint8_t fanStatusCYD;
+// extern     char SSID[33];
+// extern   char Password[64];
 void initializePacket();
 void sendSensorData();
 void receiveCommandFromCYD();
